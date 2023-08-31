@@ -1,0 +1,106 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+:root{
+    --color-1: rgb(74,85,162);
+    --color-2: rgb(120,149,203);
+    --color-3: rgb(160, 191, 224);
+    --color-4: rgb(197, 223, 248);
+    --color-4-shade: rgb(197,223,248, .25);
+    --color-5: rgba(201,112,61);
+    --color-5-shade: rgba(201, 112, 61, .9);
+    --chat-bg: rgba(255,255,255,0.75);
+
+    --spacing-1: .8rem;
+    --spacing-2: 1.2rem;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--color-1);
+    justify-content: space-around;
+    max-width: 90%;
+    margin: 0 auto;
+    color: var(--chat-bg);
+    font-family: Georgia, sans-serif, 'Times New Roman', Times, serif;
+    line-height: 1.7rem;
+}
+
+nav{
+    height: 15%;
+    background-color: var(--color-5-shade);
+}
+
+main{
+    height: 75%;
+    background-color: var(--color-4-shade);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header{
+    height: 15%;
+    opacity: 0.75;
+}
+
+.chat-window{
+    background-color: var(--chat-bg);
+    height: 75%;
+    overflow-y: scroll;
+    padding: var(--spacing-1);
+}
+
+.chat-window .text-container:nth-child(even) .message{
+    background-color: var(--color-2);
+    color: #eee;
+    color: var(--chat-bg);
+    opacity: 0.75;
+}
+
+.user-panel{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+
+.user-input, .user-input::placeholder{
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+}
+
+.user-input, .btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0 var(--spacing-1);
+}
+
+.btn{
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: var(--color-5-shade);
+    font-weight: bolder;
+}
+
+.message{
+    color: var(--color-1);
+}
+
+
+
+
+
+
