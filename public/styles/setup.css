@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+:root{
+    --color-1: rgb(74,85,162);
+    --color-2: rgb(120,149,203);
+    --color-3: rgb(160, 191, 224);
+    --color-4: rgb(197, 223, 248);
+    --color-4-shade: rgb(197,223,248, .25);
+    --color-5: rgba(201,112,61);
+    --color-5-shade: rgba(201, 112, 61, .9);
+    --chat-bg: rgba(255,255,255,0.75);
+
+    --spacing-1: .8rem;
+    --spacing-2: 1.2rem;
+
+    --font-size-1: .8rem;
+
+    --weight-weak: 500;
+    --weight-strong: bolder;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--color-1);
+    justify-content: space-around;
+    max-width: 90%;
+    margin: 0 auto;
+    color: var(--chat-bg);
+    font-family: Georgia, sans-serif, 'Times New Roman', Times, serif;
+    line-height: 1.7rem;
+}
+
+nav{
+    height: 15%;
+    background-color: var(--color-5-shade);
+}

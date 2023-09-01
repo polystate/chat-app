@@ -1,0 +1,35 @@
+.user-panel{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    overflow-x: hidden;
+}
+
+.user-input, .user-input::placeholder{
+    height: 100%;
+    color: inherit;
+    font-family: inherit;
+}
+
+.user-input, .btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0 var(--spacing-1);
+}
+
+.btn{
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: var(--color-5-shade);
+    font-weight: var(--weight-strong);
+}
+
+.message{
+    color: var(--color-1);
+}
+
+.svg{
+    fill: var(--color-4);
+}

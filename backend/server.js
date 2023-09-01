@@ -16,10 +16,8 @@ app.get("*", (req, res) => {
 io.on("connection", (socket) => {
   console.log("A user connected");
 
-  socket.on("message", (userName, message) => {
-    console.log(`Received message: ${message} from ${userName}`);
-
-    io.emit("message", userName, message);
+  socket.on("message", (data) => {
+    io.emit("message", data);
   });
 
   socket.on("disconnect", () => {
