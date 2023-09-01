@@ -41,6 +41,16 @@ main{
     background-color: #fff;
 }
 
+.current-date{
+    color: var(--color-5-shade);
+    font-size: 0.75rem;
+    background-color: #fff;
+    /* border-radius: 50%; */
+    /* text-align: center; */
+    padding: calc(var(--spacing-1)/2);
+    margin-left: var(--spacing-1);
+}
+
 .chat-window .text-container:nth-child(even) .message{
     background-color: var(--color-2);
     color: #eee;
