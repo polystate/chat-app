@@ -5,10 +5,11 @@ const socket = io();
 //append messageContainer to the chat window
 const btnSend = document.getElementById("btn-send");
 const enterUserName = document.querySelectorAll(".user-input")[0];
-const emoticon = document.getElementById("emoticon");
+const emoticonToggle = document.getElementById("emoticon-toggle");
 const chatWindow = document.querySelector(".chat-window");
 const messagesContainer = document.createElement("div");
 let userInput = document.querySelectorAll(".user-input")[1];
+let emoticonIcons = ["smile", "map", "key", "chat"];
 messagesContainer.setAttribute("class", "messages-container");
 chatWindow.appendChild(messagesContainer);
 
@@ -45,17 +46,37 @@ enterUserName.addEventListener("input", (e) => {
 
 //create an event listener for emoticon to trigger emoticon menu, toggle menuOpen boolean
 
-emoticon.addEventListener("click", () => {
+emoticonToggle.addEventListener("click", () => {
   if (!menuOpen) {
     const emoticonMenu = document.createElement("div");
     emoticonMenu.setAttribute("class", "emoticon-menu");
+    generateAllSVGs(emoticonMenu, emoticonIcons);
     chatWindow.appendChild(emoticonMenu);
+    emoticonMenu.addEventListener("click", (e) => {
+      const clientClicked = e.target.getAttribute("class");
+      if (clientClicked === "svg") {
+        console.log(e.target);
+      }
+    });
     menuOpen = true;
   } else {
     document.querySelector(".emoticon-menu").remove();
     menuOpen = false;
   }
 });
+
+function generateSVG(menu, name) {
+  const SVG = document.createElement("img");
+  SVG.setAttribute("src", `./svg/${name}.svg`);
+  SVG.setAttribute("class", "svg");
+  menu.appendChild(SVG);
+}
+
+function generateAllSVGs(menu, nameArr) {
+  for (let i = 0; i < nameArr.length; i++) {
+    generateSVG(menu, nameArr[i]);
+  }
+}
 
 //transfer message between server/client
 

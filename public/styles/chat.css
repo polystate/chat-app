@@ -1,13 +1,6 @@
-main{
-    height: 75%;
-    background-color: var(--color-4-shade);
-    display: flex;
-    flex-direction: column;
-}
-
 .chat-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     height: 15%;
     opacity: 0.75;
@@ -34,19 +27,25 @@ main{
     order: 0;
 }
 
+.text-container p{
+    margin-bottom: var(--spacing-1);
+}
+
 .emoticon-menu{
     order: 1;
     height: 10%;
     width: 100%;
     background-color: #fff;
+    display: flex;
+    justify-content: space-around;
 }
 
 .current-date{
     color: var(--color-5-shade);
     font-size: 0.75rem;
     background-color: #fff;
-    /* border-radius: 50%; */
-    /* text-align: center; */
+    border-radius: 50%;
+    text-align: center;
     padding: calc(var(--spacing-1)/2);
     margin-left: var(--spacing-1);
 }
@@ -56,4 +55,8 @@ main{
     color: #eee;
     color: var(--chat-bg);
     opacity: 0.75;
+}
+
+.svg{
+    width: 7.5%;
 }

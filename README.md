@@ -1,1 +1,1 @@
-A basic chat application using express/socket.io
+Outlaw Lounge - basic chat application using express/socket.io

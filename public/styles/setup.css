@@ -24,6 +24,7 @@ html {
     --spacing-2: 1.2rem;
 
     --font-size-1: .8rem;
+    --font-size-2: calc(var(--font-size-1)*.85);
 
     --weight-weak: 500;
     --weight-strong: bolder;
@@ -34,7 +35,7 @@ body{
     flex-direction: column;
     height: 100vh;
     background-color: var(--color-1);
-    justify-content: space-around;
+    justify-content: flex-start;
     max-width: 90%;
     margin: 0 auto;
     color: var(--chat-bg);
@@ -42,7 +43,33 @@ body{
     line-height: 1.7rem;
 }
 
-nav{
-    height: 15%;
+body > *{
+    margin-top: var(--spacing-2);
+}
+
+nav {
+    height: 10%;
     background-color: var(--color-5-shade);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+main{
+    /* height: 75%; */
+    height: 75%;
+    /* max-height: 75%; */
+    background-color: var(--color-4-shade);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: var(--spacing-2);
+    /* bottom: var(--spacing-2); */
+}
+
+h1{
+    color: #fff;
+    opacity: 0.85;
 }

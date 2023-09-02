@@ -9,6 +9,7 @@
     height: 100%;
     color: inherit;
     font-family: inherit;
+    text-align: center;
 }
 
 .user-input, .btn{
@@ -24,12 +25,11 @@
     cursor: pointer;
     background-color: var(--color-5-shade);
     font-weight: var(--weight-strong);
+    font-size: var(--font-size-2);
 }
 
 .message{
     color: var(--color-1);
 }
 
-.svg{
-    fill: var(--color-4);
-}
+
