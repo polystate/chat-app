@@ -7,7 +7,16 @@ const server = http.createServer(app);
 const socketIO = require("socket.io");
 const io = socketIO(server);
 
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(
+  express.static(path.join(__dirname, "../public"), {
+    extensions: ["html", "js"],
+    setHeaders: (res, path, stat) => {
+      if (path.endsWith(".js")) {
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+      }
+    },
+  })
+);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
