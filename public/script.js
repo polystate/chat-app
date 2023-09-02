@@ -1,3 +1,5 @@
+//* keep just the socket.io code in here for architecture? *//
+
 import socket from "./scripts/socket.js";
 
 const chatWindow = document.querySelector(".chat-window");
