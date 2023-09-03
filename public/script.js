@@ -1,9 +1,8 @@
-//* keep just the socket.io code in here for architecture? *//
-
-import socket from "./scripts/socket.js";
-
 const chatWindow = document.querySelector(".chat-window");
 const messagesContainer = document.createElement("div");
+const chatHeader = document.querySelector(".chat-header");
+const countContainer = document.querySelector(".count-container");
+const countDisplay = document.createElement("p");
 
 messagesContainer.setAttribute("class", "messages-container");
 chatWindow.appendChild(messagesContainer);
@@ -11,6 +10,14 @@ chatWindow.appendChild(messagesContainer);
 socket.on("message", (data) => {
   const { name, message, date } = data;
   outputMessage(name, message, date);
+});
+
+socket.on("userCount", (userCount) => {
+  countDisplay.textContent = `${userCount} ${
+    userCount > 1 ? "users" : "user"
+  } active`;
+  countDisplay.setAttribute("class", "user-input");
+  countContainer.appendChild(countDisplay);
 });
 
 function outputMessage(name, message, date) {

@@ -38,6 +38,7 @@
     background-color: #fff;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .current-date{
@@ -59,5 +60,10 @@
 
 .emoticon{
     width: 7.5%;
+    transition: .2s ease;
+}
+
+.emoticon:hover{
+    transform: scale(1.2);
 }
 

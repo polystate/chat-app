@@ -58,15 +58,12 @@ nav {
 }
 
 main{
-    /* height: 75%; */
     height: 75%;
-    /* max-height: 75%; */
     background-color: var(--color-4-shade);
     display: flex;
     flex-direction: column;
     position: relative;
     margin-bottom: var(--spacing-2);
-    /* bottom: var(--spacing-2); */
 }
 
 h1{

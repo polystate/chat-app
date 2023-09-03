@@ -9,17 +9,15 @@
   
   <script type="module" defer src="script.js"></script>
   <script type="module" defer src="./scripts/listeners.js"></script>
-  <script type="module" defer src="./scripts/socket.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <body>
     <nav>
       <h1>Past Star</h1>
       <p>Menu</p>
-      <!-- Past Star or Outlaw Lounge -->
     </nav>
-    <!-- <p class="num-users"></p> -->
     <main>
       <section class="chat-header">
+        <div class="count-container"></div>
         <input type="text" class="user-input" placeholder="Enter name..." />
       </section>
       <section class="chat-window"></section>
@@ -29,5 +27,9 @@
         <button type="submit" id="btn-send" class="btn">Send</button>
       </section>
      </main>
+
+     <script>
+      const socket = io();
+     </script>
   </body>
 </html>

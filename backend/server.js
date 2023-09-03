@@ -23,17 +23,20 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  console.log("A user connected");
+  console.log("A user connected.");
+
+  io.emit("userCount", io.engine.clientsCount);
 
   socket.on("message", (data) => {
     io.emit("message", data);
   });
 
   socket.on("disconnect", () => {
-    console.log("A user disconnected");
+    console.log("A user disconnected.");
+    io.emit("userCount", io.engine.clientsCount);
   });
 });
 
 server.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`App listening on port ${PORT}...`);
 });

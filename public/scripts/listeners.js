@@ -1,5 +1,4 @@
 import { formatDate, emoticons } from "./utilities";
-import socket from "./socket";
 
 const btnSend = document.getElementById("btn-send");
 const enterUserName = document.querySelectorAll(".user-input")[0];
@@ -44,7 +43,6 @@ emoticonToggle.addEventListener("click", () => {
       const clientClicked = e.target.getAttribute("class");
       if (clientClicked === "emoticon") {
         const emojiCopy = e.target.cloneNode(true);
-        console.log(emojiCopy);
         userInput.value += emojiCopy.textContent;
       }
     });
