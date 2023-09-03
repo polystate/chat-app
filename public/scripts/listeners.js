@@ -1,4 +1,4 @@
-import { generateAllSVGs, formatDate } from "./utilities";
+import { formatDate, emoticons } from "./utilities";
 import socket from "./socket";
 
 const btnSend = document.getElementById("btn-send");
@@ -9,7 +9,6 @@ const chatWindow = document.querySelector(".chat-window");
 let userName = "";
 let menuOpen = false;
 let userInput = document.querySelectorAll(".user-input")[1];
-let emoticonIcons = ["smile", "map", "key", "chat"];
 
 btnSend.addEventListener("click", (e) => {
   e.preventDefault();
@@ -32,12 +31,21 @@ emoticonToggle.addEventListener("click", () => {
     emoticonToggle.classList.add("active-star");
     const emoticonMenu = document.createElement("div");
     emoticonMenu.setAttribute("class", "emoticon-menu");
-    generateAllSVGs(emoticonMenu, emoticonIcons);
+
+    for (let i = 0; i < 5; i++) {
+      const spanEmoji = document.createElement("span");
+      spanEmoji.setAttribute("class", "emoticon");
+      spanEmoji.textContent = emoticons[i];
+      emoticonMenu.appendChild(spanEmoji);
+    }
+
     chatWindow.appendChild(emoticonMenu);
     emoticonMenu.addEventListener("click", (e) => {
       const clientClicked = e.target.getAttribute("class");
-      if (clientClicked === "svg") {
-        console.log(e.target);
+      if (clientClicked === "emoticon") {
+        const emojiCopy = e.target.cloneNode(true);
+        console.log(emojiCopy);
+        userInput.value += emojiCopy.textContent;
       }
     });
     menuOpen = true;

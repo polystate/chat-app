@@ -26,4 +26,5 @@ function outputMessage(name, message, date) {
   textDiv.appendChild(currentDate);
   textDiv.appendChild(para);
   messagesContainer.appendChild(textDiv);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 }

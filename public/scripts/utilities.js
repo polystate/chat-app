@@ -1,16 +1,3 @@
-function generateSVG(menu, name) {
-  const SVG = document.createElement("img");
-  SVG.setAttribute("src", `./svg/${name}.svg`);
-  SVG.setAttribute("class", "svg");
-  menu.appendChild(SVG);
-}
-
-function generateAllSVGs(menu, nameArr) {
-  for (let i = 0; i < nameArr.length; i++) {
-    generateSVG(menu, nameArr[i]);
-  }
-}
-
 function formatDate(date) {
   const months = [
     "01",
@@ -40,4 +27,57 @@ function formatDate(date) {
   }${minutes} ${ampm}`;
 }
 
-export { generateSVG, generateAllSVGs, formatDate };
+const emoticons = [
+  "😀",
+  "😃",
+  "😄",
+  "😁",
+  "😆",
+  "😅",
+  "😂",
+  "🤣",
+  "😊",
+  "😇",
+  "🙂",
+  "🙃",
+  "😉",
+  "😌",
+  "😍",
+  "😘",
+  "😗",
+  "😙",
+  "😚",
+  "😋",
+  "😛",
+  "😜",
+  "😝",
+  "🤑",
+  "🤗",
+  "🤓",
+  "😎",
+  "🤡",
+  "🤠",
+  "😏",
+  "😒",
+  "😞",
+  "😔",
+  "😟",
+  "😕",
+  "🙁",
+  "☹️",
+  "😣",
+  "😖",
+  "😫",
+  "😩",
+  "😤",
+  "😠",
+  "😡",
+  "😶",
+  "😐",
+  "😑",
+  "😬",
+  "😮",
+  "😯",
+];
+
+export { formatDate, emoticons };
