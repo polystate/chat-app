@@ -1,6 +1,6 @@
-# Past Star Chat App
+# Passed Star Chat App
 
-Past Star is a real-time chat application that allows users to communicate, share messages, and even upload their own emoticons to express themselves better. This README provides an overview of the application's features, technologies used, and instructions for getting started.
+Passed Star is a real-time chat application that allows users to communicate, share messages, and even upload their own emoticons to express themselves better. This README provides an overview of the application's features, technologies used, and instructions for getting started.
 
 ## Table of Contents
 
