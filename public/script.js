@@ -22,6 +22,7 @@ socket.on("userCount", (userCount) => {
     userCount > 1 ? "users" : "user"
   } active`;
   countDisplay.setAttribute("class", "user-input");
+  countDisplay.setAttribute("id", "count-text");
   countContainer.appendChild(countDisplay);
 });
 

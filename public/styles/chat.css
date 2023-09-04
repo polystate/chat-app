@@ -3,20 +3,27 @@
     justify-content: flex-end;
     align-items: center;
     height: 15%;
-    opacity: 0.75;
 }
 
-.info-text{
+.chat-header .user-input{
+    width: 55%;
+}
+
+#count-text{
+    opacity: 0.75;
     font-size: var(--font-size-1);
+    display: inline;
 }
 
 .chat-window{
     background-color: var(--chat-bg);
     height: 75%;
     overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    word-wrap: break-word;
 }
 
 .message-container{
@@ -25,6 +32,7 @@
 
 .text-container{
     order: 0;
+    border-bottom: 1px solid var(--color-2);
 }
 
 .text-container p{
@@ -45,10 +53,18 @@
     color: var(--color-5-shade);
     font-size: 0.75rem;
     background-color: #fff;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    background-color: transparent;
     text-align: center;
     padding: calc(var(--spacing-1)/2);
     margin-left: var(--spacing-1);
+    color: #fff;
+    color: var(--color-1);
+    /* font-weight: 550; */
+    /* font-weight: bold; */
+    /* background-color: var(--color-1);
+    width: 100%;
+    margin: 0; */
 }
 
 .chat-window .text-container:nth-child(even) .message{
@@ -58,12 +74,20 @@
     opacity: 0.75;
 }
 
+.message{
+    /* padding: var(--spacing-1); */
+    /* margin-left: var(--spacing-1); */
+    width: 100%;
+    padding-left: var(--spacing-2);
+}
+
 .emoticon{
     width: 7.5%;
     transition: .2s ease;
 }
 
 .emoticon:hover{
+    cursor: pointer;
     transform: scale(1.2);
 }
 

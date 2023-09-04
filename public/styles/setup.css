@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barriecito&family=Roboto:wght@300&family=Tilt+Prism&display=swap');
+
 *,
 *::before,
 *::after{
@@ -17,7 +19,11 @@ html {
     --color-4: rgb(197, 223, 248);
     --color-4-shade: rgb(197,223,248, .25);
     --color-5: rgba(201,112,61);
-    --color-5-shade: rgba(201, 112, 61, .9);
+    /* --color-5-shade: rgba(201, 112, 61, .9);  */
+    
+    --color-5-brighter: rgba(255,132,0, .9);
+    --color-5-shade: rgba(255, 132, 0, .85);
+
     --chat-bg: rgba(255,255,255,0.75);
 
     --spacing-1: .8rem;
@@ -25,6 +31,7 @@ html {
 
     --font-size-1: .8rem;
     --font-size-2: calc(var(--font-size-1)*.85);
+    --header-font-size: 1.3rem;
 
     --weight-weak: 500;
     --weight-strong: bolder;
@@ -39,7 +46,7 @@ body{
     max-width: 90%;
     margin: 0 auto;
     color: var(--chat-bg);
-    font-family: Georgia, sans-serif, 'Times New Roman', Times, serif;
+    font-family: 'Anton', sans-serif, Georgia, 'Times New Roman', Times, serif;
     line-height: 1.7rem;
 }
 
@@ -48,14 +55,15 @@ body > *{
 }
 
 nav {
-    height: 10%;
+    height: 12.5%;
     background-color: var(--color-5-shade);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
+
 
 main{
     height: 75%;
@@ -69,4 +77,6 @@ main{
 h1{
     color: #fff;
     opacity: 0.85;
+    font-size: var(--header-font-size);
+    font-family: 'Tilt Prism', sans-serif, Georgia, 'Times New Roman', Times, serif;
 }

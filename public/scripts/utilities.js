@@ -30,8 +30,14 @@ function formatDate(date) {
 const sounds = {
   message_sent: new Audio("../sounds/message_sent.mp3"),
   user_enter: new Audio("../sounds/user_enter.mp3"),
-  hold_emoticon: new Audio("../sounds/user_hold_emoticon"),
+  hold_emoticon: new Audio("../sounds/user_hold_emoticon.mp3"),
 };
+
+for (const key in sounds) {
+  if (sounds.hasOwnProperty(key)) {
+    sounds[key].volume = 0.25;
+  }
+}
 
 const emoticons = [
   "😀",
