@@ -1,4 +1,4 @@
-import { formatDate, emoticons } from "./utilities";
+import { formatDate, emoticons, sounds } from "./utilities";
 
 const btnSend = document.getElementById("btn-send");
 const enterUserName = document.querySelectorAll(".user-input")[0];
@@ -56,6 +56,8 @@ emoticonToggle.addEventListener("click", () => {
 
 function sendMessage() {
   if (!userInput.value) return;
+
+  sounds.message_sent.play();
 
   socket.emit("message", {
     name: userName,

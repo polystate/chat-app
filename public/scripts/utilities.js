@@ -27,6 +27,12 @@ function formatDate(date) {
   }${minutes} ${ampm}`;
 }
 
+const sounds = {
+  message_sent: new Audio("../sounds/message_sent.mp3"),
+  user_enter: new Audio("../sounds/user_enter.mp3"),
+  hold_emoticon: new Audio("../sounds/user_hold_emoticon"),
+};
+
 const emoticons = [
   "😀",
   "😃",
@@ -80,4 +86,4 @@ const emoticons = [
   "😯",
 ];
 
-export { formatDate, emoticons };
+export { formatDate, emoticons, sounds };

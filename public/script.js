@@ -1,11 +1,16 @@
+import { sounds } from "./scripts/utilities.js";
+
 const chatWindow = document.querySelector(".chat-window");
 const messagesContainer = document.createElement("div");
-const chatHeader = document.querySelector(".chat-header");
 const countContainer = document.querySelector(".count-container");
 const countDisplay = document.createElement("p");
 
 messagesContainer.setAttribute("class", "messages-container");
 chatWindow.appendChild(messagesContainer);
+
+socket.on("userJoined", () => {
+  sounds.user_enter.play();
+});
 
 socket.on("message", (data) => {
   const { name, message, date } = data;

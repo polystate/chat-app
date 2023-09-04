@@ -27,6 +27,8 @@ io.on("connection", (socket) => {
 
   io.emit("userCount", io.engine.clientsCount);
 
+  socket.broadcast.emit("userJoined");
+
   socket.on("message", (data) => {
     io.emit("message", data);
   });
