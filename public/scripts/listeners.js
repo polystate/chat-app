@@ -1,13 +1,13 @@
+import MessageModule from "../modules/MessageModule";
 import { formatDate, emoticons, sounds } from "./utilities";
 
 const btnSend = document.getElementById("btn-send");
 const enterUserName = document.querySelectorAll(".user-input")[0];
 const emoticonToggle = document.getElementById("emoticon-toggle");
-const chatWindow = document.querySelector(".chat-window");
+let userInput = document.querySelectorAll(".user-input")[1];
 
 let userName = "";
 let menuOpen = false;
-let userInput = document.querySelectorAll(".user-input")[1];
 
 btnSend.addEventListener("click", (e) => {
   e.preventDefault();
@@ -38,7 +38,7 @@ emoticonToggle.addEventListener("click", () => {
       emoticonMenu.appendChild(spanEmoji);
     }
 
-    chatWindow.appendChild(emoticonMenu);
+    MessageModule.chatWindow.appendChild(emoticonMenu);
     emoticonMenu.addEventListener("click", (e) => {
       const clientClicked = e.target.getAttribute("class");
       if (clientClicked === "emoticon") {
