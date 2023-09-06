@@ -1,4 +1,4 @@
-import MessageModule from "./modules/MessageModule.js";
+import Messenger from "./modules/Messenger.js";
 import { sounds } from "./scripts/utilities.js";
 
 const countContainer = document.querySelector(".count-container");
@@ -10,7 +10,7 @@ socket.on("userJoined", () => {
 
 socket.on("message", (data) => {
   const { name, message, date } = data;
-  MessageModule.outputMessage(name, message, date);
+  Messenger.outputMessage(name, message, date);
 });
 
 socket.on("userCount", (userCount) => {

@@ -1,28 +1,27 @@
-import MessageModule from "../modules/MessageModule";
-import { formatDate, emoticons, sounds } from "./utilities";
+import Messenger from "../modules/Messenger";
+import User from "../modules/User";
+import { emoticons } from "./utilities";
 
 const btnSend = document.getElementById("btn-send");
 const enterUserName = document.querySelectorAll(".user-input")[0];
 const emoticonToggle = document.getElementById("emoticon-toggle");
-let userInput = document.querySelectorAll(".user-input")[1];
 
-let userName = "";
 let menuOpen = false;
 
 btnSend.addEventListener("click", (e) => {
   e.preventDefault();
-  sendMessage();
+  Messenger.sendMessage(User.userInput, User.userName);
 });
 
-userInput.addEventListener("keypress", (e) => {
+User.userInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
-    sendMessage();
+    Messenger.sendMessage(User.userInput, User.userName);
   }
 });
 
 enterUserName.addEventListener("input", (e) => {
-  userName = e.target.value;
+  User.userName = e.target.value;
 });
 
 emoticonToggle.addEventListener("click", () => {
@@ -38,12 +37,12 @@ emoticonToggle.addEventListener("click", () => {
       emoticonMenu.appendChild(spanEmoji);
     }
 
-    MessageModule.chatWindow.appendChild(emoticonMenu);
+    Messenger.chatWindow.appendChild(emoticonMenu);
     emoticonMenu.addEventListener("click", (e) => {
       const clientClicked = e.target.getAttribute("class");
       if (clientClicked === "emoticon") {
         const emojiCopy = e.target.cloneNode(true);
-        userInput.value += emojiCopy.textContent;
+        User.userInput.value += emojiCopy.textContent;
       }
     });
     menuOpen = true;
@@ -53,18 +52,3 @@ emoticonToggle.addEventListener("click", () => {
     menuOpen = false;
   }
 });
-
-function sendMessage() {
-  if (!userInput.value) return;
-
-  sounds.message_sent.play();
-
-  socket.emit("message", {
-    name: userName,
-    message: userInput.value,
-    date: formatDate(new Date()),
-  });
-
-  userInput.value = "";
-  userInput.focus();
-}

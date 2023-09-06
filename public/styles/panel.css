@@ -31,7 +31,7 @@
     /* font-weight: var(--weight-strong); */
     font-size: var(--font-size-2);
     /* font-family: Georgia, 'Times New Roman', Times, serif; */
-    font-family: 'Anton', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Anton', sans-serif, Georgia, 'Times New Roman', Times, serif;
     letter-spacing: 2px;
     text-transform: uppercase;
 }

@@ -1,6 +1,23 @@
-function MessageModule() {
+import { formatDate, sounds } from "../scripts/utilities";
+
+function Messenger() {
   const chatWindow = document.querySelector(".chat-window");
   const messagesContainer = document.querySelector(".messages-container");
+
+  const sendMessage = (userInput, userName) => {
+    if (!userInput.value) return;
+
+    sounds.message_sent.play();
+
+    socket.emit("message", {
+      name: userName,
+      message: userInput.value,
+      date: formatDate(new Date()),
+    });
+
+    userInput.value = "";
+    userInput.focus();
+  };
 
   const outputMessage = (name, message, date) => {
     const textDiv = document.createElement("div");
@@ -17,7 +34,7 @@ function MessageModule() {
     chatWindow.scrollTop = chatWindow.scrollHeight;
   };
 
-  return { outputMessage, chatWindow };
+  return { sendMessage, outputMessage, chatWindow };
 }
 
-export default MessageModule();
+export default Messenger();
