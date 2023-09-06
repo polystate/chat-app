@@ -2,31 +2,25 @@ import Messenger from "../modules/Messenger";
 import User from "../modules/User";
 import { emoticons } from "./utilities";
 
-const btnSend = document.getElementById("btn-send");
-const enterUserName = document.querySelectorAll(".user-input")[0];
-const emoticonToggle = document.getElementById("emoticon-toggle");
-
-let menuOpen = false;
-
-btnSend.addEventListener("click", (e) => {
+Messenger.btnSend.addEventListener("click", (e) => {
   e.preventDefault();
-  Messenger.sendMessage(User.userInput, User.userName);
+  Messenger.send(User.input, User.name);
 });
 
-User.userInput.addEventListener("keypress", (e) => {
+User.input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
-    Messenger.sendMessage(User.userInput, User.userName);
+    Messenger.send(User.input, User.name);
   }
 });
 
-enterUserName.addEventListener("input", (e) => {
-  User.userName = e.target.value;
+User.enterName.addEventListener("input", (e) => {
+  User.name = e.target.value;
 });
 
-emoticonToggle.addEventListener("click", () => {
-  if (!menuOpen) {
-    emoticonToggle.classList.add("active-star");
+Messenger.emoticonToggle.addEventListener("click", () => {
+  if (!User.menuOpen) {
+    Messenger.emoticonToggle.classList.add("active-star");
     const emoticonMenu = document.createElement("div");
     emoticonMenu.setAttribute("class", "emoticon-menu");
 
@@ -42,13 +36,13 @@ emoticonToggle.addEventListener("click", () => {
       const clientClicked = e.target.getAttribute("class");
       if (clientClicked === "emoticon") {
         const emojiCopy = e.target.cloneNode(true);
-        User.userInput.value += emojiCopy.textContent;
+        User.input.value += emojiCopy.textContent;
       }
     });
-    menuOpen = true;
+    User.menuOpen = true;
   } else {
-    emoticonToggle.classList.remove("active-star");
+    Messenger.emoticonToggle.classList.remove("active-star");
     document.querySelector(".emoticon-menu").remove();
-    menuOpen = false;
+    User.menuOpen = false;
   }
 });

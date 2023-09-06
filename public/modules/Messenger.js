@@ -3,8 +3,10 @@ import { formatDate, sounds } from "../scripts/utilities";
 function Messenger() {
   const chatWindow = document.querySelector(".chat-window");
   const messagesContainer = document.querySelector(".messages-container");
+  const btnSend = document.getElementById("btn-send");
+  const emoticonToggle = document.getElementById("emoticon-toggle");
 
-  const sendMessage = (userInput, userName) => {
+  const send = (userInput, userName) => {
     if (!userInput.value) return;
 
     sounds.message_sent.play();
@@ -19,7 +21,7 @@ function Messenger() {
     userInput.focus();
   };
 
-  const outputMessage = (name, message, date) => {
+  const output = (name, message, date) => {
     const textDiv = document.createElement("div");
     textDiv.setAttribute("class", "text-container");
     const currentDate = document.createElement("p");
@@ -34,7 +36,7 @@ function Messenger() {
     chatWindow.scrollTop = chatWindow.scrollHeight;
   };
 
-  return { sendMessage, outputMessage, chatWindow };
+  return { send, output, chatWindow, btnSend, emoticonToggle };
 }
 
 export default Messenger();

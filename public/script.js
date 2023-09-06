@@ -10,7 +10,7 @@ socket.on("userJoined", () => {
 
 socket.on("message", (data) => {
   const { name, message, date } = data;
-  Messenger.outputMessage(name, message, date);
+  Messenger.output(name, message, date);
 });
 
 socket.on("userCount", (userCount) => {
