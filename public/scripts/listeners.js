@@ -16,6 +16,7 @@ User.input.addEventListener("keypress", (e) => {
 
 User.enterName.addEventListener("input", (e) => {
   User.name = e.target.value;
+  User.storeName(e.target.value);
 });
 
 Messenger.emoticonToggle.addEventListener("click", () => {
