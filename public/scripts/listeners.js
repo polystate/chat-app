@@ -20,7 +20,15 @@ User.enterName.addEventListener("input", (e) => {
 });
 
 User.hamburger.addEventListener("click", () => {
-  console.log("clicked hamburger menu");
+  if (User.isMenuDisplayed) {
+    Messenger.messagesContainer.style.display = "none";
+    Messenger.menuContainer.style.display = "block";
+  } else {
+    Messenger.messagesContainer.style.display = "block";
+    Messenger.menuContainer.style.display = "none";
+  }
+
+  User.isMenuDisplayed = !User.isMenuDisplayed;
 });
 
 Messenger.emoticonToggle.addEventListener("click", () => {

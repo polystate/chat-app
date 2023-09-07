@@ -8,6 +8,7 @@ function User() {
   let input = document.querySelectorAll(".user-input")[1];
   let menuOpen = false;
   let hamburgerMenuOpen = false;
+  let isMenuDisplayed = true;
 
   const storeName = (newName) => {
     localStorage.setItem("userName", newName);
@@ -39,6 +40,7 @@ function User() {
     messageHistory,
     updateHistory,
     hamburger,
+    isMenuDisplayed,
   };
 }
 

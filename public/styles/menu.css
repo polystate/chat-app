@@ -1,0 +1,10 @@
+.menu-container{
+    display: none;
+    height: 100%;
+    color: var(--color-1);
+    padding: var(--spacing-1);
+}
+
+.menu-container h2{
+    text-align: center;
+}
