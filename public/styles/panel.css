@@ -5,6 +5,10 @@
     overflow-x: hidden;
 }
 
+.user-panel .user-input{
+    width: 100%;
+}
+
 .user-input, .user-input::placeholder{
     height: 100%;
     color: inherit;
@@ -28,9 +32,7 @@
     font-family: inherit;
     cursor: pointer;
     background-color: var(--color-5-shade);
-    /* font-weight: var(--weight-strong); */
     font-size: var(--font-size-2);
-    /* font-family: Georgia, 'Times New Roman', Times, serif; */
     font-family: 'Anton', sans-serif, Georgia, 'Times New Roman', Times, serif;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -52,8 +54,46 @@
 .active-star{
     background-color: var(--color-5);
     background-color: var(--color-1);
-    width: calc(100% + 5px);
     transition: 2s ease-in-out;
+}
+
+.hamburger-menu{
+    align-self: center;
+    width: 15%;
+    background-color: var(--color-1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--spacing-1);
+    
+}
+
+.hamburger-menu:active{
+    animation: spin .6s linear;
+    background-color: transparent;
+    opacity: .5;
+}
+
+.bar{
+    width: 1rem;
+    height: .2rem;
+    background-color: var(--color-1);
+    background: #fff;
+    margin: .15rem;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 
 

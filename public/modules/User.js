@@ -2,9 +2,12 @@ function User() {
   const messageHistory =
     JSON.parse(localStorage.getItem("messageHistory")) || [];
   const enterName = document.querySelectorAll(".user-input")[0];
+  const hamburger = document.querySelector(".hamburger-menu");
+
   let name = localStorage.getItem("userName") || "";
   let input = document.querySelectorAll(".user-input")[1];
   let menuOpen = false;
+  let hamburgerMenuOpen = false;
 
   const storeName = (newName) => {
     localStorage.setItem("userName", newName);
@@ -29,11 +32,13 @@ function User() {
     name,
     input,
     menuOpen,
+    hamburgerMenuOpen,
     enterName,
     storeName,
     loadHistory,
     messageHistory,
     updateHistory,
+    hamburger,
   };
 }
 

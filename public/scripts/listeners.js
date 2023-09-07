@@ -19,6 +19,10 @@ User.enterName.addEventListener("input", (e) => {
   User.storeName(e.target.value);
 });
 
+User.hamburger.addEventListener("click", () => {
+  console.log("clicked hamburger menu");
+});
+
 Messenger.emoticonToggle.addEventListener("click", () => {
   if (!User.menuOpen) {
     Messenger.emoticonToggle.classList.add("active-star");
