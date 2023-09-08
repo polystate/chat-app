@@ -20,15 +20,16 @@ User.enterName.addEventListener("input", (e) => {
 });
 
 User.hamburger.addEventListener("click", () => {
-  if (User.isMenuDisplayed) {
-    Messenger.messagesContainer.style.display = "none";
-    Messenger.menuContainer.style.display = "block";
-  } else {
-    Messenger.messagesContainer.style.display = "block";
-    Messenger.menuContainer.style.display = "none";
-  }
-
-  User.isMenuDisplayed = !User.isMenuDisplayed;
+  setTimeout(() => {
+    if (User.isMenuDisplayed) {
+      Messenger.messagesContainer.style.display = "none";
+      Messenger.lobbyContainer.style.display = "flex";
+    } else {
+      Messenger.messagesContainer.style.display = "block";
+      Messenger.lobbyContainer.style.display = "none";
+    }
+    User.isMenuDisplayed = !User.isMenuDisplayed;
+  }, 250);
 });
 
 Messenger.emoticonToggle.addEventListener("click", () => {

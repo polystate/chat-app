@@ -5,7 +5,7 @@ function Messenger() {
   const messagesContainer = document.querySelector(".messages-container");
   const btnSend = document.getElementById("btn-send");
   const emoticonToggle = document.getElementById("emoticon-toggle");
-  const menuContainer = document.querySelector(".menu-container");
+  const lobbyContainer = document.querySelector(".lobby-container");
 
   const send = (userInput, userName) => {
     if (!userInput.value) return;
@@ -44,7 +44,7 @@ function Messenger() {
     btnSend,
     emoticonToggle,
     messagesContainer,
-    menuContainer,
+    lobbyContainer,
   };
 }
 

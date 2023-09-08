@@ -21,17 +21,36 @@
       </section>
       <section class="chat-window">
         <div class="messages-container"></div>
-        <div class="menu-container">
-          <h2>Lobby</h2>
-          <h3>Rooms</h3>
-          <h3>Users:</h3>
-          <h3>Games:</h3>
-          <h3>Font Size:</h3>
-          <h3>Color:</h3>
-          <h3>Font Family:</h3>
-          <h3>Friends:</h3>
-          <h3>Connection:</h3>
-          <h3>Status:</h3>
+        <div class="lobby-container">
+          <section class="lobby-header">
+            <h2>Lobby</h2>
+            <h2>Alias: Anon</h2>
+          </section>
+         <section class="lobby-main">
+            <div class="lobby-item">
+              <h3>Rooms:</h3>
+              <select class="dropdown" id="rooms-dropdown">
+                <option value="room1">Room 1</option>
+                <option value="room1">Room 1</option>
+              </select>
+            </div>
+
+            <div class="lobby-item">
+              <h3>Users:</h3>
+              <select class="dropdown" id="users-dropdown">
+                <option value="user1">User 1</option>
+                <option value="user2">User 2</option>
+              </select>
+            </div>
+
+            <div class="lobby-item">
+              <h3>Games:</h3>
+              <select class="dropdown" id="games-dropdown">
+                <option value="game1">Game 1</option>
+                <option value="game2">Game 2</option>
+              </select>
+            </div>
+          </section>
         </div>
       </section>
       <section class="user-panel">

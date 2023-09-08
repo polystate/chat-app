@@ -61,18 +61,12 @@
     color: var(--color-5-shade);
     font-size: 0.75rem;
     background-color: #fff;
-    /* border-radius: 50%; */
     background-color: transparent;
     text-align: center;
     padding: calc(var(--spacing-1)/2);
     margin-left: var(--spacing-1);
     color: #fff;
     color: var(--color-1);
-    /* font-weight: 550; */
-    /* font-weight: bold; */
-    /* background-color: var(--color-1);
-    width: 100%;
-    margin: 0; */
 }
 
 /* .chat-window .text-container:nth-child(even) .message{
@@ -83,8 +77,6 @@
 } */
 
 .message{
-    /* padding: var(--spacing-1); */
-    /* margin-left: var(--spacing-1); */
     width: 100%;
     padding-left: var(--spacing-2);
 }
