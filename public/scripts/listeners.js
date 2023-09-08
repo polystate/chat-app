@@ -1,5 +1,6 @@
 import Messenger from "../modules/Messenger";
 import User from "../modules/User";
+import Lobby from "../modules/Lobby";
 import { emoticons } from "./utilities";
 
 Messenger.btnSend.addEventListener("click", (e) => {
@@ -17,6 +18,7 @@ User.input.addEventListener("keypress", (e) => {
 User.enterName.addEventListener("input", (e) => {
   User.name = e.target.value;
   User.storeName(e.target.value);
+  Lobby.aliasDisplay.textContent = e.target.value || "Anon";
 });
 
 User.hamburger.addEventListener("click", () => {
@@ -27,6 +29,7 @@ User.hamburger.addEventListener("click", () => {
     } else {
       Messenger.messagesContainer.style.display = "block";
       Messenger.lobbyContainer.style.display = "none";
+      Messenger.chatWindow.scrollTop = Messenger.chatWindow.scrollHeight;
     }
     User.isMenuDisplayed = !User.isMenuDisplayed;
   }, 250);

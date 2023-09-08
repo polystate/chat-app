@@ -31,6 +31,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    width: 100%;
 }
 
 .lobby-item{
@@ -43,6 +44,8 @@
 .dropdown{
     outline: none;
     cursor: pointer;
+    padding: calc(var(--spacing-1)/2) var(--spacing-1);
+    font-family: inherit;
 }
 
 .dropdown:active{
