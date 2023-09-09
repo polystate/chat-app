@@ -7,6 +7,8 @@ const server = http.createServer(app);
 const socketIO = require("socket.io");
 const io = socketIO(server);
 
+const allUsers = [];
+
 app.use(
   express.static(path.join(__dirname, "../public"), {
     extensions: ["html", "js"],
@@ -23,9 +25,19 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  console.log("A user connected.");
+  console.log(`User with socket ID ${socket.id} connected.`);
 
   io.emit("userCount", io.engine.clientsCount);
+
+  socket.on("userJoined", (userName) => {
+    // const existingUser = allUsers.find((user) => user.name === userName);
+
+    // if (existingUser) return;
+
+    allUsers.push({ name: userName, id: socket.id });
+    console.log(allUsers);
+    io.emit("userJoined", allUsers);
+  });
 
   socket.broadcast.emit("userJoined");
 
@@ -34,7 +46,14 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("A user disconnected.");
+    console.log(`User with socket ID ${socket.id} disconnected.`);
+
+    const userIndex = allUsers.findIndex((user) => user.id === socket.id);
+
+    if (userIndex !== -1) {
+      allUsers.splice(userIndex, 1);
+    }
+
     io.emit("userCount", io.engine.clientsCount);
   });
 });

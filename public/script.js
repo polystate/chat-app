@@ -1,5 +1,6 @@
 import User from "./modules/User.js";
 import Messenger from "./modules/Messenger.js";
+import Lobby from "./modules/Lobby.js";
 import { sounds } from "./scripts/utilities.js";
 
 const countContainer = document.querySelector(".count-container");
@@ -13,8 +14,22 @@ if (displayChatHistory) {
   });
 }
 
-socket.on("userJoined", () => {
+socket.emit("userJoined", User.name);
+
+socket.on("userJoined", (allUsers) => {
   sounds.user_enter.play();
+
+  Lobby.userList.textContent = `${User.name}, `;
+
+  allUsers.forEach((user) => {
+    if (User.name === user.name) {
+      return;
+    }
+
+    Lobby.userList.textContent += `${user.name}, `;
+  });
+
+  Lobby.userList.textContent = Lobby.userList.textContent.slice(0, -2);
 });
 
 socket.on("message", (data) => {
