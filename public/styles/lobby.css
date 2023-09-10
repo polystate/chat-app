@@ -7,11 +7,15 @@
     align-items: center;
     /* justify-content: space-evenly; */
     background: linear-gradient(to right, var(--color-1), var(--color-2));
+    background-color: var(--chat-bg);
+    
 }
 
 .lobby-header{
+    display: none;
     width: 100%;
 }
+
 
 .lobby-container h2{
     color: var(--color-5-shade);
@@ -26,12 +30,28 @@
 
 .lobby-main{
     background-color: #fff;
+    background-color: var(--chat-bg);
     padding: var(--spacing-2);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: var(--spacing-2);
     height: 100%;
     width: 100%;
+}
+
+.lobby-main label{
+    text-align: center;
+}
+
+.lobby-main p{
+    font-size: var(--font-size-1);
+    align-self: center;
+}
+
+.user-list{
+    color: var(--color-5-shade);
+    opacity: 0.9;
 }
 
 .lobby-item{
@@ -41,11 +61,24 @@
     gap: var(--spacing-1);
 }
 
+.dropdown-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* gap: var(--spacing-2); */
+    height: 100%;
+}
+
 .dropdown{
     outline: none;
     cursor: pointer;
     padding: calc(var(--spacing-1)/2) var(--spacing-1);
     font-family: inherit;
+    border: none;
+    outline: none;
+    color: var(--color-1);
+    width: 75%;
+    text-align: center;
 }
 
 .dropdown:active{
@@ -56,3 +89,8 @@
     display: inline-block;
     margin: 0 10px;
 } */
+
+#save-changes{
+    color: white;
+    padding: var(--spacing-2);
+}

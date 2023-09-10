@@ -26,30 +26,35 @@
             <h2>Name: <span class="alias-name"></span></h2>
           </section>
          <section class="lobby-main">
-            <p>Active Users: <span class="user-list"></span></p>
-            <div class="lobby-item">
-              <p>Select Room</p>
-              <select class="dropdown" id="rooms-dropdown">
-                <option value="room1">Room 1</option>
-                <option value="room1">Room 1</option>
-              </select>
-            </div>
+            <p><span class="user-list"></span> is currently active...</p>
 
-            <div class="lobby-item">
-              <p>Select User</p>
-              <select class="dropdown" id="users-dropdown">
-                <option value="user1">User 1</option>
-                <option value="user2">User 2</option>
-              </select>
+            <div class="dropdown-container">
+              <label for="room" name="room">Rooms</label>
+              <div class="lobby-item">
+                <!-- <p>Select Room</p> -->
+                <select class="dropdown" id="rooms-dropdown">
+                  <option value="room1">Main Lobby</option>
+                  <option value="room1">Ball Room</option>
+                </select>
+              </div>
+  
+              <div class="lobby-item">
+                <!-- <p>Select User</p> -->
+                <select class="dropdown" id="users-dropdown">
+                  <option value="user1">User 1</option>
+                  <option value="user2">User 2</option>
+                </select>
+              </div>
+  
+              <div class="lobby-item">
+                <!-- <p>Select Game</p> -->
+                <select class="dropdown" id="games-dropdown">
+                  <option value="game1">Game 1</option>
+                  <option value="game2">Game 2</option>
+                </select>
+              </div>
             </div>
-
-            <div class="lobby-item">
-              <p>Select Game</p>
-              <select class="dropdown" id="games-dropdown">
-                <option value="game1">Game 1</option>
-                <option value="game2">Game 2</option>
-              </select>
-            </div>
+            <button type="submit" id="save-changes" class="btn">Save Changes</button>
           </section>
         </div>
       </section>

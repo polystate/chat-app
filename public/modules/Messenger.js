@@ -28,11 +28,11 @@ function Messenger() {
     const currentDate = document.createElement("p");
     currentDate.setAttribute("class", "current-date");
     currentDate.textContent = date;
-    const para = document.createElement("p");
-    para.setAttribute("class", "message");
-    para.textContent = (name || "Anon") + ": " + message;
+    const messageContent = document.createElement("p");
+    messageContent.setAttribute("class", "message");
+    messageContent.textContent = (name || "Anon") + ": " + message;
     textDiv.appendChild(currentDate);
-    textDiv.appendChild(para);
+    textDiv.appendChild(messageContent);
     messagesContainer.appendChild(textDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight;
   };
