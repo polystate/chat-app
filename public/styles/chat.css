@@ -24,6 +24,7 @@
     flex-direction: column;
     justify-content: space-between;
     word-wrap: break-word;
+    position: relative;
 }
 
 .message-container{
@@ -38,14 +39,14 @@
     margin-bottom: var(--spacing-1);
 }
 
-.emoticon-menu{
-    order: 1;
-    height: 10%;
-    width: 100%;
+.emoticon-menu {
     background-color: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: absolute;
+    bottom: 0; 
+    width: 100%;
 }
 
 .current-date{

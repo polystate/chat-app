@@ -3,6 +3,8 @@ import User from "../modules/User";
 import Lobby from "../modules/Lobby";
 import { emoticons } from "./utilities";
 
+//Messenger Send
+
 Messenger.btnSend.addEventListener("click", (e) => {
   e.preventDefault();
   Messenger.send(User.input, User.name);
@@ -15,11 +17,15 @@ User.input.addEventListener("keypress", (e) => {
   }
 });
 
+//Enter name input
+
 User.enterName.addEventListener("input", (e) => {
   User.name = e.target.value;
   User.storeName(e.target.value);
   Lobby.aliasDisplay.textContent = e.target.value || "Anon";
 });
+
+//Toggle main menu
 
 User.hamburger.addEventListener("click", () => {
   setTimeout(() => {
@@ -35,11 +41,14 @@ User.hamburger.addEventListener("click", () => {
   }, 250);
 });
 
+//Toggle emoticon menu
+
 Messenger.emoticonToggle.addEventListener("click", () => {
   if (!User.menuOpen) {
     Messenger.emoticonToggle.classList.add("active-star");
     const emoticonMenu = document.createElement("div");
     emoticonMenu.setAttribute("class", "emoticon-menu");
+    const userPanel = document.querySelector(".user-panel");
 
     for (let i = 0; i < 5; i++) {
       const spanEmoji = document.createElement("span");
@@ -48,7 +57,12 @@ Messenger.emoticonToggle.addEventListener("click", () => {
       emoticonMenu.appendChild(spanEmoji);
     }
 
-    Messenger.chatWindow.appendChild(emoticonMenu);
+    //Append emoticonMenu to the DOM through userPanel
+
+    userPanel.appendChild(emoticonMenu);
+
+    emoticonMenu.style.marginBottom = `${userPanel.clientHeight}px`;
+
     emoticonMenu.addEventListener("click", (e) => {
       const clientClicked = e.target.getAttribute("class");
       if (clientClicked === "emoticon") {
