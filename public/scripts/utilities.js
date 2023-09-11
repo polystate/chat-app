@@ -1,3 +1,6 @@
+import User from "../modules/User";
+import Messenger from "../modules/Messenger";
+
 function formatDate(date) {
   const months = [
     "01",
@@ -25,6 +28,16 @@ function formatDate(date) {
   return `${month}/${day}/${year} - ${formattedHours}:${
     minutes < 10 ? "0" : ""
   }${minutes} ${ampm}`;
+}
+
+function userLocEmoticon() {
+  if (User.getCurrentLoc() === "chat") {
+    Messenger.emoticonToggle.classList.remove("active-star");
+    const emoticonMenu = document.querySelector(".emoticon-menu");
+    if (emoticonMenu) emoticonMenu.remove();
+    // document.querySelector(".emoticon-menu").remove();
+    User.menuOpen = false;
+  }
 }
 
 const sounds = {
@@ -92,4 +105,4 @@ const emoticons = [
   "😯",
 ];
 
-export { formatDate, emoticons, sounds };
+export { formatDate, userLocEmoticon, emoticons, sounds };

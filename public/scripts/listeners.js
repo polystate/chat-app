@@ -1,19 +1,21 @@
 import Messenger from "../modules/Messenger";
 import User from "../modules/User";
 import Lobby from "../modules/Lobby";
-import { emoticons } from "./utilities";
+import { emoticons, userLocEmoticon } from "./utilities";
 
 //Messenger Send
 
 Messenger.btnSend.addEventListener("click", (e) => {
   e.preventDefault();
   Messenger.send(User.input, User.name);
+  userLocEmoticon();
 });
 
-User.input.addEventListener("keypress", (e) => {
+document.body.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     Messenger.send(User.input, User.name);
+    userLocEmoticon();
   }
 });
 

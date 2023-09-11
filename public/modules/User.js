@@ -29,6 +29,13 @@ function User() {
     localStorage.setItem("messageHistory", JSON.stringify(messageHistory));
   };
 
+  const getCurrentLoc = () => {
+    const messagesContainer = document.querySelector(".messages-container");
+    if (messagesContainer.style.display === "none") {
+      return "lobby";
+    } else return "chat";
+  };
+
   return {
     name,
     input,
@@ -41,6 +48,7 @@ function User() {
     updateHistory,
     hamburger,
     isMenuDisplayed,
+    getCurrentLoc,
   };
 }
 
