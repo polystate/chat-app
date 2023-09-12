@@ -29,9 +29,7 @@
             <p><span class="user-list"></span> is currently active...</p>
 
             <div class="dropdown-container">
-              <label for="room" name="room">Rooms</label>
-              <div class="lobby-item">
-                <!-- <p>Select Room</p> -->
+              <!-- <div class="lobby-item">
                 <select class="dropdown" id="rooms-dropdown">
                   <option value="room1">Main Lobby</option>
                   <option value="room2">Ball Room</option>
@@ -41,24 +39,48 @@
               </div>
   
               <div class="lobby-item">
-                <!-- <p>Select User</p> -->
                 <select class="dropdown" id="users-dropdown">
                   <option value="user1">User 1</option>
                   <option value="user2">User 2</option>
                   <option value="user3">User 3</option>
                 </select>
-              </div>
-  
+              </div> -->
+<!--   
               <div class="lobby-item">
-                <!-- <p>Select Game</p> -->
                 <select class="dropdown" id="games-dropdown">
                   <option value="game1">Billiards</option>
                   <option value="game2">Table Tennis</option>
                   <option value="game3">Chess</option>
                 </select>
-              </div>
+              </div> -->
+              <fieldset>
+                <legend>Notifications</legend>
+                <div class="toggle-container">
+                  <label for="sounds" name="sounds">Sounds:</label>
+                  <input type="checkbox" class="toggle">
+                </div>
+
+                <div class="toggle-container">
+                  <label for="alerts" name="alerts">Alerts:</label>
+                  <input type="checkbox" class="toggle">
+                </div>
+
+                <div class="toggle-container">
+                  <label for="fog" name="fog">Fog:</label>
+                  <input type="checkbox" class="toggle">
+                </div>
+
+                <div class="toggle-container">
+                  <label for="events" name="events">Events:</label>
+                  <input type="checkbox" class="toggle">
+                </div>
+              </fieldset>
+
             </div>
-            <button type="submit" id="save-changes" class="btn">Save Changes</button>
+            <div class="btn-wrapper">
+              <button type="submit" id="save-changes" class="btn">Save Changes</button>
+              <button type="submit" id="delete-history" class="btn">Delete History</button>
+            </div>
           </section>
         </div>
       </section>

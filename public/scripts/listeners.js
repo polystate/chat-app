@@ -1,7 +1,7 @@
 import Messenger from "../modules/Messenger";
 import User from "../modules/User";
 import Lobby from "../modules/Lobby";
-import { emoticons, userLocEmoticon } from "./utilities";
+import { emoticons } from "./utilities";
 
 //Messenger Send
 
@@ -79,3 +79,12 @@ Messenger.emoticonToggle.addEventListener("click", () => {
     User.menuOpen = false;
   }
 });
+
+function userLocEmoticon() {
+  if (User.getCurrentLoc() === "chat") {
+    Messenger.emoticonToggle.classList.remove("active-star");
+    const emoticonMenu = document.querySelector(".emoticon-menu");
+    if (emoticonMenu) emoticonMenu.remove();
+    User.menuOpen = false;
+  }
+}

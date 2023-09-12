@@ -1,4 +1,9 @@
 function User() {
+  const settings = {
+    sounds: true,
+    events: true,
+  };
+
   const messageHistory =
     JSON.parse(localStorage.getItem("messageHistory")) || [];
   const enterName = document.querySelectorAll(".user-input")[0];
@@ -49,6 +54,7 @@ function User() {
     hamburger,
     isMenuDisplayed,
     getCurrentLoc,
+    settings,
   };
 }
 
