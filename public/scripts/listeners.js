@@ -1,15 +1,9 @@
 import Messenger from "../modules/Messenger";
 import User from "../modules/User";
 import Lobby from "../modules/Lobby";
-import { emoticons } from "./utilities";
+import { emoticons, clearPlaceholder } from "./utilities";
 
-//Messenger Send
-
-Messenger.btnSend.addEventListener("click", (e) => {
-  e.preventDefault();
-  Messenger.send(User.input, User.name);
-  userLocEmoticon();
-});
+//Body Listener
 
 document.body.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -19,6 +13,14 @@ document.body.addEventListener("keypress", (e) => {
   }
 });
 
+//Messenger Send
+
+Messenger.btnSend.addEventListener("click", (e) => {
+  e.preventDefault();
+  Messenger.send(User.input, User.name);
+  userLocEmoticon();
+});
+
 //Enter name input
 
 User.enterName.addEventListener("input", (e) => {
@@ -26,6 +28,11 @@ User.enterName.addEventListener("input", (e) => {
   User.storeName(e.target.value);
   Lobby.aliasDisplay.textContent = e.target.value || "Anon";
 });
+
+//Clear placeholders on click
+
+clearPlaceholder(User.enterName);
+clearPlaceholder(User.input);
 
 //Toggle main menu
 

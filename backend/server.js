@@ -25,7 +25,7 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  console.log(`User with socket ID ${socket.id} connected.`);
+  // console.log(`User with socket ID ${socket.id} connected.`);
 
   io.emit("userCount", io.engine.clientsCount);
 
@@ -35,7 +35,6 @@ io.on("connection", (socket) => {
     // if (existingUser) return;
 
     allUsers.push({ name: userName, id: socket.id });
-    console.log(allUsers);
     io.emit("userJoined", allUsers);
   });
 

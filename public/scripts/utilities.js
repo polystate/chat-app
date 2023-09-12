@@ -27,6 +27,18 @@ function formatDate(date) {
   }${minutes} ${ampm}`;
 }
 
+function clearPlaceholder(elem) {
+  const initialPlaceholder = elem.placeholder;
+
+  elem.addEventListener("focus", () => {
+    elem.placeholder = "";
+  });
+
+  elem.addEventListener("blur", () => {
+    elem.placeholder = initialPlaceholder;
+  });
+}
+
 const sounds = {
   message_sent: new Audio("../sounds/message_sent.mp3"),
   user_enter: new Audio("../sounds/user_enter.mp3"),
@@ -92,4 +104,4 @@ const emoticons = [
   "😯",
 ];
 
-export { formatDate, emoticons, sounds };
+export { formatDate, clearPlaceholder, emoticons, sounds };

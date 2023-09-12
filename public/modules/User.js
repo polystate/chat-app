@@ -1,7 +1,9 @@
 function User() {
   const settings = {
     sounds: true,
-    events: true,
+    alerts: true,
+    events: false,
+    fog: true,
   };
 
   const messageHistory =
