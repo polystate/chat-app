@@ -20,6 +20,13 @@ socket.on("userJoined", (allUsers) => {
   sounds.user_enter.play();
 
   Lobby.userList.textContent = `${User.name}, `;
+  Lobby.appendOption(User.name);
+  //Append <option> to dropdown of User.name here
+  // const option = document.createElement("option");
+  // option.value = User.name;
+  // option.textContent = User.name;
+  // Lobby.dropDown.appendChild(option);
+  // console.log(Lobby.dropDown.childNodes);
 
   allUsers.forEach((user) => {
     if (User.name === user.name) {
