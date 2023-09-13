@@ -19,10 +19,21 @@ socket.emit("userJoined", User.name);
 socket.on("userJoined", (allUsers) => {
   // sounds.user_enter.play();
 
+<<<<<<< HEAD
   //issue is that anonymous name is returning null instead of the Anon string so we can't set it to localStorage here so that it appears in chat
   //check if status is anonymous, if so set User.name to the anonymous name directly so that Anon_3312 or whatever appears in chat
   //Anon name (without id) still being used becuase it gets overwritten in short circuit operator in User later
   //there shouldn't be a lobby displayname, it's just unnecessary overhead, everything shuold be routed through here through localStorage and getStorage for both anonymous/logged user name. both chat and lobby display name should both be routed by User.name, and User.name when program first starts gets its name value from localStorage
+=======
+  Lobby.userList.textContent = `${User.name}, `;
+  Lobby.appendOption(User.name);
+  //Append <option> to dropdown of User.name here
+  // const option = document.createElement("option");
+  // option.value = User.name;
+  // option.textContent = User.name;
+  // Lobby.dropDown.appendChild(option);
+  // console.log(Lobby.dropDown.childNodes);
+>>>>>>> 49f6fa378dce9dd0348d53d940222f13ba5dbd38
 
   if (!allUsers) return;
 

@@ -4,9 +4,16 @@ function Lobby() {
   const aliasDisplay = document.querySelector(".alias-name");
   aliasDisplay.textContent = User.name || "Anon";
   const userList = document.querySelector(".user-list");
-  // userList.textContent = User.name;
+  const dropDown = document.querySelector(".dropdown");
 
-  return { aliasDisplay, userList };
+  const appendOption = (userName) => {
+    const option = document.createElement("option");
+    option.value = User.name;
+    option.textContent = User.name;
+    dropDown.appendChild(option);
+  };
+
+  return { aliasDisplay, userList, dropDown, appendOption };
 }
 
 export default Lobby();
