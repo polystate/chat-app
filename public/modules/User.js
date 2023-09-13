@@ -27,7 +27,7 @@ function User() {
       const parseMessages = JSON.parse(savedMessages);
       return parseMessages;
     } else {
-      console.log("First time for browser. No history.");
+      // console.log("First time for browser. No history.");
     }
   };
 

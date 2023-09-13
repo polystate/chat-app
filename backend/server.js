@@ -25,16 +25,27 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  // console.log(`User with socket ID ${socket.id} connected.`);
-
   io.emit("userCount", io.engine.clientsCount);
 
   socket.on("userJoined", (userName) => {
-    // const existingUser = allUsers.find((user) => user.name === userName);
+    let name;
+    let status;
+    // userName === "userName" || !userName
+    //   ? (name = `Anon_${socket.id.slice(0, 4)}`)
+    //   : (name = userName);
 
-    // if (existingUser) return;
+    if (userName === "userName" || !userName) {
+      name = `Anon_${socket.id.slice(0, 4)}`;
+      status = "Anonymous";
+    } else {
+      name = userName;
+      status = "Logged";
+    }
 
-    allUsers.push({ name: userName, id: socket.id });
+    console.log(`User name has logged in: ${name}`);
+
+    allUsers.push({ name: name, id: socket.id, status: status });
+    console.log(`List of all users: `, allUsers);
     io.emit("userJoined", allUsers);
   });
 
@@ -45,7 +56,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log(`User with socket ID ${socket.id} disconnected.`);
+    // console.log(`User with socket ID ${socket.id} disconnected.`);
 
     const userIndex = allUsers.findIndex((user) => user.id === socket.id);
 
