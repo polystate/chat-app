@@ -10,7 +10,7 @@ function Lobby() {
     const option = document.createElement("option");
     option.value = User.name;
     option.textContent = User.name;
-    dropDown.appendChild(option);
+    // dropDown.appendChild(option);
   };
 
   return { aliasDisplay, userList, dropDown, appendOption };

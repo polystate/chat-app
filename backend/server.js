@@ -25,14 +25,13 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", (socket) => {
+  console.log(io.engine.clientsCount);
+
   io.emit("userCount", io.engine.clientsCount);
 
   socket.on("userJoined", (userName) => {
     let name;
     let status;
-    // userName === "userName" || !userName
-    //   ? (name = `Anon_${socket.id.slice(0, 4)}`)
-    //   : (name = userName);
 
     if (userName === "userName" || !userName) {
       name = `Anon_${socket.id.slice(0, 4)}`;
