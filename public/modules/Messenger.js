@@ -1,11 +1,16 @@
 import { formatDate, sounds } from "../scripts/utilities";
 
 function Messenger() {
+  //chat window
   const chatWindow = document.querySelector(".chat-window");
   const messagesContainer = document.querySelector(".messages-container");
+  //user panel
   const btnSend = document.getElementById("btn-send");
   const emoticonToggle = document.getElementById("emoticon-toggle");
-  const lobbyContainer = document.querySelector(".lobby-container");
+  const userPanel = document.querySelector(".user-panel");
+  //chat header
+  const countContainer = document.querySelector(".count-container");
+  const countDisplay = document.createElement("p");
 
   const send = (userInput, userName) => {
     if (!userInput.value) return;
@@ -43,8 +48,10 @@ function Messenger() {
     chatWindow,
     btnSend,
     emoticonToggle,
+    userPanel,
     messagesContainer,
-    lobbyContainer,
+    countContainer,
+    countDisplay,
   };
 }
 

@@ -1,28 +1,26 @@
 import User from "./modules/User.js";
 import Messenger from "./modules/Messenger.js";
 import Lobby from "./modules/Lobby.js";
-import { sounds } from "./scripts/utilities.js";
+import { sounds, clearPlaceholder } from "./scripts/utilities.js";
 
-const countContainer = document.querySelector(".count-container");
-const countDisplay = document.createElement("p");
-
-const displayChatHistory = User.loadHistory();
-
-if (displayChatHistory) {
-  displayChatHistory.forEach((msgObj) => {
+if (User.loadHistory()) {
+  User.loadHistory().forEach((msgObj) => {
     Messenger.output(msgObj.name, msgObj.message, msgObj.date);
   });
 }
 
+clearPlaceholder(User.enterName);
+clearPlaceholder(User.input);
+
 socket.on("userCount", (userCount) => {
   if (!userCount) return;
   console.log("count event received from server emitter");
-  countDisplay.textContent = `${userCount} ${
+  Messenger.countDisplay.textContent = `${userCount} ${
     userCount > 1 ? "users" : "user"
   } active`;
-  countDisplay.setAttribute("class", "user-input");
-  countDisplay.setAttribute("id", "count-text");
-  countContainer.appendChild(countDisplay);
+  Messenger.countDisplay.setAttribute("class", "user-input");
+  Messenger.countDisplay.setAttribute("id", "count-text");
+  Messenger.countContainer.appendChild(Messenger.countDisplay);
 });
 
 socket.emit("userJoined", User.name);
