@@ -17,10 +17,13 @@ function Messenger() {
 
     sounds.message_sent.play();
 
+    console.log(userName);
+
     socket.emit("message", {
       name: userName,
       message: userInput.value,
       date: formatDate(new Date()),
+      id: socket.id,
     });
 
     userInput.value = "";

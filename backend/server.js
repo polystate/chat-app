@@ -51,6 +51,9 @@ io.on("connection", (socket) => {
   socket.broadcast.emit("userJoined");
 
   socket.on("message", (data) => {
+    const userIndex = allUsers.findIndex((user) => user.id === socket.id);
+    const currentName = allUsers[userIndex].name;
+    data.name = currentName;
     io.emit("message", data);
   });
 
