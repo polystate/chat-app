@@ -11,14 +11,15 @@ function User() {
     JSON.parse(localStorage.getItem("messageHistory")) || [];
 
   //User inputs specific to Messenger
-  const enterName = document.querySelectorAll(".user-input")[0];
+  // const enterName = document.querySelectorAll(".user-input")[0];
+  const enterName = document.getElementById("enter-name");
   const hamburger = document.querySelector(".hamburger-menu");
 
   //DOM Retrieval for User Name
   let name = localStorage.getItem("userName");
 
   //DOM Element for messenger
-  let input = document.querySelectorAll(".user-input")[1];
+  let input = document.getElementById("type-message");
 
   //Boolean switch toggles for the different menus (might also be for Messenger)
   let emoticonMenuOpen = false;

@@ -9,9 +9,6 @@ if (User.loadHistory()) {
   });
 }
 
-clearPlaceholder(User.enterName);
-clearPlaceholder(User.input);
-
 socket.on("userCount", (userCount) => {
   if (!userCount) return;
   console.log("count event received from server emitter");
@@ -31,7 +28,8 @@ socket.on("userJoined", (allUsers) => {
   if (!allUsers) return;
   console.log(allUsers);
 
-  const userStatus = allUsers.find((user) => user.id === socket.id).status;
+  const userStatus =
+    allUsers.find((user) => user.id === socket.id).status || "Unknown";
   const userName = allUsers.find((user) => user.id === socket.id).name;
   const lobbyNames = allUsers.map((user) => user.name).join(", ");
 
@@ -45,3 +43,6 @@ socket.on("message", (data) => {
   Messenger.output(name, message, date);
   User.updateHistory(name, message, date);
 });
+
+clearPlaceholder(User.enterName);
+clearPlaceholder(User.input);

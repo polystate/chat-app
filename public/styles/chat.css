@@ -15,6 +15,16 @@
     display: inline;
 }
 
+#enter-name{
+    display: none;
+}
+
+/* #current-name{
+       display: flex;
+       align-items: center;
+       justify-content: end;
+} */
+
 .chat-window{
     background-color: var(--chat-bg);
     height: 75%;
