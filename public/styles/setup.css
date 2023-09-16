@@ -36,6 +36,9 @@ html {
     /*Font Weight*/
     --weight-weak: 500;
     --weight-strong: bolder;
+
+    /*Toggles*/
+    --main-toggle-size: 1.75rem;
 }
 
 body{

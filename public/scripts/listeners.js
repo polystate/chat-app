@@ -3,33 +3,33 @@ import User from "../modules/User";
 import Lobby from "../modules/Lobby";
 import { emoticons, handleSendMessage } from "./utilities";
 
-window.onload = function () {
-  console.log("All resources have finished loading.");
-  const countText = document.getElementById("count-text");
-  const countContainer = document.querySelector(".count-container");
-  if (!countText) {
-    //this code is executing propery
-    console.log("Error with countText");
-    console.log(Messenger.countDisplay);
-    //recreate countText
-    const countDisplay = document.createElement("p");
-    countDisplay.setAttribute("class", "user-input");
-    countDisplay.setAttribute("id", "count-text");
-    countDisplay.textContent = "1 user active";
-    console.log(countDisplay);
-    countContainer.appendChild(countDisplay);
-  }
-};
+// window.onload = function () {
+//   console.log("All resources have finished loading.");
+//   const countText = document.getElementById("count-text");
+//   const countContainer = document.querySelector(".count-container");
+//   if (!countText) {
+//     //this code is executing propery
+//     console.log("Error with countText");
+//     console.log(Messenger.countDisplay);
+//     //recreate countText
+//     const countDisplay = document.createElement("p");
+//     countDisplay.setAttribute("class", "user-input");
+//     countDisplay.setAttribute("id", "count-text");
+//     countDisplay.textContent = "1 user active";
+//     console.log(countDisplay);
+//     countContainer.appendChild(countDisplay);
+//   }
+// };
 
 //Body Listener
 document.addEventListener("DOMContentLoaded", () => {
-  const hasRefreshed = localStorage.getItem("hasRefreshed");
-  if (!hasRefreshed) {
-    setTimeout(() => {
-      localStorage.setItem("hasRefreshed", "true");
-      location.reload();
-    }, 100);
-  }
+  // const hasRefreshed = localStorage.getItem("hasRefreshed");
+  // if (!hasRefreshed) {
+  //   setTimeout(() => {
+  //     localStorage.setItem("hasRefreshed", "true");
+  //     location.reload();
+  //   }, 100);
+  // }
   const countText = document.getElementById("count-text");
   const currentName = document.getElementById("current-name");
 

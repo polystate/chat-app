@@ -1,9 +1,9 @@
 function User() {
   const settings = {
-    sounds: true,
-    alerts: true,
-    events: false,
-    fog: true,
+    sounds: { on: true, elem: document.getElementById("sound-toggle") },
+    alerts: { on: true, elem: document.getElementById("alert-toggle") },
+    events: { on: false, elem: document.getElementById("event-toggle") },
+    fog: { on: true, elem: document.getElementById("fog-toggle") },
   };
 
   //DOM Retrieval

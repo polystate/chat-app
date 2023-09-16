@@ -3,7 +3,40 @@
 @import './styles/panel.css';
 @import './styles/lobby.css';
 
+@media(max-width: 280px){
+    body{
+        --main-toggle-size: 1.65rem;
+        /* font-size: 12px; */
+    }
+}
 
+@media(min-width: 360px) and (max-height: 740px) {
+    body{
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+
+    .user-input{
+        letter-spacing: 1.5px;
+    }
+
+    .lobby-main{
+        border-bottom: none;
+    }
+
+    .message{
+        letter-spacing: .5px;
+        margin-left: 1.7rem;
+    }
+
+    #btn-send{
+        font-size: 13px;
+    }
+
+    .toggle-container{
+        gap: calc(var(--spacing-2) * 2);
+    }
+}
 
 
 
