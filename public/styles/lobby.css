@@ -155,7 +155,12 @@ fieldset{
     font-size: var(--font-size-2);
 }
 
+
 #delete-history{
     background-color: var(--color-1);
+}
+
+#delete-history:active{
+    opacity: .9;
 }
 

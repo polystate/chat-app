@@ -36,8 +36,121 @@
     .toggle-container{
         gap: calc(var(--spacing-2) * 2);
     }
+
+    .btn-wrapper{
+        padding-top: var(--spacing-1);
+        padding-bottom: calc(var(--spacing-2) * 1.75);
+    }
+
+    fieldset:not(:first-child){
+        margin-top: 1.05rem;
+    }
+
+    h1{
+        font-size: 1.5rem;
+    }
 }
 
+@media(min-width: 412px) and (max-height: 915px){
+    /*how to decrease height or bottom margin of panel*/
+        :root{
+            --header-font-size: 1.75rem;
+            --font-size-1: 1rem;
+        }
+
+        body{
+            margin-bottom: 0;
+        }
+
+        .user-panel{
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #emoticon-toggle{
+            width: 3.5rem;
+        }
+
+        .emoticon-menu{
+            justify-content: space-evenly;
+        }
+
+        .emoticon{
+            font-size: 1.25rem;
+        }
+
+        .message{
+            font-size: var(--font-size-3);
+            margin-left: calc(var(--spacing-2)*1.25);
+        }
+
+        .current-date{
+            font-size: var(--font-size-2);
+        }
+
+        .user-input{
+            font-size: calc(var(--font-size-3)*.9);
+        }
+}
+
+@media(min-width: 413px){
+    :root{
+        --header-font-size: 1.75rem;
+        --font-size-1: 1rem;
+    }
+    .user-input{
+        font-size: var(--font-size-2);
+    }
+    #type-message{
+        width: 50%;
+    }
+    
+}
+
+@media(min-width: 412px) and (min-height: 300px) and (max-height: 780px){
+    .svg{        
+        height: 30px;
+        margin-top: calc(var(--spacing-1)*.8);
+    }
+
+    .svg:active{
+        background-color: none;
+    }
+
+    .active-star{
+        background-color: transparent;
+    }
+
+    .current-date{
+        font-size: calc(var(--font-size-2)*.75);
+    }
+
+    .message{
+        font-size: var(--font-size-1);
+    }
+
+    #count-text{
+        font-size: var(--font-size-2);
+        position: relative;
+        bottom: 1.5px;
+    }
+}
+
+@media(min-width: 650px){
+    .toggle-container{
+        gap: 8rem;
+    }
+
+    /* .btn:active{
+        opacity: .9;
+    } */
+}
+
+@media(min-width: 800px){
+    .toggle-container{
+        gap: 12rem;
+    }
+}
 
 
 
