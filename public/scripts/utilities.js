@@ -53,8 +53,40 @@ function userLocEmotToggle() {
 
 function handleSendMessage(e) {
   e.preventDefault();
+  if (User.getCurrentLoc() === "lobby") {
+    document.querySelector(".lobby-container").style.display = "none";
+    document.querySelector(".messages-container").style.display = "block";
+    document.getElementById("enter-name").style.display = "none";
+    document.getElementById("current-name").style.display = "block";
+    User.isMenuDisplayed = !User.isMenuDisplayed;
+  }
   Messenger.send(User.input, User.name);
   userLocEmotToggle();
+}
+
+function optionsToggle(option) {
+  option.elem.addEventListener("click", (e) => {
+    option.on = !option.on;
+    handleSetting(option);
+  });
+}
+
+function handleSetting(option) {
+  switch (option.name) {
+    case "sound":
+      option.on ? adjustVolume(0.25) : adjustVolume(0);
+      break;
+    case "alert":
+      break;
+    case "fog":
+      const nav = document.querySelector("nav");
+      nav.style.boxShadow = option.on ? "0 10px 10px" : "none";
+      break;
+    case "event":
+      break;
+    default:
+      console.log("Option not found.");
+  }
 }
 
 const sounds = {
@@ -63,9 +95,13 @@ const sounds = {
   hold_emoticon: new Audio("../sounds/user_hold_emoticon.mp3"),
 };
 
-for (const key in sounds) {
-  if (sounds.hasOwnProperty(key)) {
-    sounds[key].volume = 0.25;
+adjustVolume(0.25);
+
+function adjustVolume(level) {
+  for (const key in sounds) {
+    if (sounds.hasOwnProperty(key)) {
+      sounds[key].volume = level;
+    }
   }
 }
 
@@ -122,4 +158,11 @@ const emoticons = [
   "😯",
 ];
 
-export { formatDate, clearPlaceholder, handleSendMessage, emoticons, sounds };
+export {
+  formatDate,
+  clearPlaceholder,
+  handleSendMessage,
+  optionsToggle,
+  emoticons,
+  sounds,
+};

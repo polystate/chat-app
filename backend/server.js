@@ -53,11 +53,30 @@ io.on("connection", (socket) => {
 
   socket.broadcast.emit("userJoined");
 
+  // socket.on("message", (data) => {
+  //   const userIndex = allUsers.findIndex((user) => user.id === socket.id);
+  //   console.log(userIndex);
+  //   // if (!userIndex) return;
+  //   if (!allUsers[userIndex].name) return;
+  //   const currentName = allUsers[userIndex].name || "Anon_36w5";
+  //   data.name = currentName;
+  //   io.emit("message", data);
+  // });
+
+  //attempted solution
   socket.on("message", (data) => {
     const userIndex = allUsers.findIndex((user) => user.id === socket.id);
-    const currentName = allUsers[userIndex].name;
-    data.name = currentName;
-    io.emit("message", data);
+    console.log(userIndex);
+
+    if (userIndex !== -1 && allUsers[userIndex].name) {
+      const currentName = allUsers[userIndex].name;
+      data.name = currentName;
+      io.emit("message", data);
+    } else {
+      // Handle the case where the user's name is undefined or userIndex is not found
+      data.name = "Anon_36w5"; // Set a default name or handle it as needed
+      io.emit("message", data);
+    }
   });
 
   socket.on("disconnect", () => {

@@ -11,7 +11,6 @@ if (User.loadHistory()) {
 
 socket.on("userCount", (userCount) => {
   if (!userCount) return;
-  console.log("count event received from server emitter");
   Messenger.countDisplay.textContent = `${userCount} ${
     userCount > 1 ? "users" : "user"
   } active`;
@@ -26,7 +25,6 @@ socket.on("userJoined", (allUsers) => {
   sounds.user_enter.play();
 
   if (!allUsers) return;
-  console.log(allUsers);
 
   const userStatus =
     allUsers.find((user) => user.id === socket.id).status || "Unknown";

@@ -1,7 +1,7 @@
 import Messenger from "../modules/Messenger";
 import User from "../modules/User";
 import Lobby from "../modules/Lobby";
-import { emoticons, handleSendMessage } from "./utilities";
+import { emoticons, handleSendMessage, optionsToggle } from "./utilities";
 
 // window.onload = function () {
 //   console.log("All resources have finished loading.");
@@ -70,6 +70,7 @@ User.hamburger.addEventListener("click", () => {
       document.getElementById("current-name").style.display = "none";
       Messenger.messagesContainer.style.display = "none";
       Lobby.lobbyContainer.style.display = "flex";
+      Messenger.chatWindow.scrollTop = 0;
     } else {
       const currentName = document.getElementById("current-name");
       document.getElementById("enter-name").style.display = "none";
@@ -117,3 +118,10 @@ Messenger.emoticonToggle.addEventListener("click", () => {
     User.emoticonMenuOpen = false;
   }
 });
+
+//Lobby options settings toggle listener
+
+for (let setting in User.settings) {
+  const option = User.settings[setting];
+  optionsToggle(option);
+}
