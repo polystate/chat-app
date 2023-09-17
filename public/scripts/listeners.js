@@ -119,6 +119,30 @@ Messenger.emoticonToggle.addEventListener("click", () => {
   }
 });
 
+//Delete History
+
+Lobby.deleteHistory.addEventListener("click", () => {
+  // prompt("This will delete your history, are you sure?");
+  // localStorage.clear();
+  Lobby.showModal();
+});
+
+Lobby.confirmYesButton.addEventListener("click", () => {
+  localStorage.clear();
+  Lobby.hideModal();
+  location.reload();
+});
+
+Lobby.confirmNoButton.addEventListener("click", () => {
+  Lobby.hideModal();
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === Lobby.modal) {
+    Lobby.hideModal();
+  }
+});
+
 //Lobby options settings toggle listener
 
 for (let setting in User.settings) {
