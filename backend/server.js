@@ -4,13 +4,7 @@ const PORT = process.env.port || 3000;
 const path = require("path");
 const http = require("http");
 const server = http.createServer(app);
-const socketIO = require("socket.io");
-const io = socketIO(server, {
-  pingTimeout: 10000,
-  pingInterval: 30000,
-});
-
-const allUsers = [];
+const socketSetup = require("./socket");
 
 app.use(
   express.static(path.join(__dirname, "../public"), {
@@ -27,70 +21,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-io.on("connection", (socket) => {
-  console.log(io.engine.clientsCount);
-
-  io.emit("userCount", io.engine.clientsCount);
-
-  socket.on("userJoined", (userName) => {
-    let name;
-    let status;
-
-    if (userName === "userName" || !userName) {
-      name = `Anon_${socket.id.slice(0, 4)}`;
-      status = "Anonymous";
-    } else {
-      name = userName;
-      status = "Logged";
-    }
-
-    console.log(`User name has logged in: ${name}`);
-
-    allUsers.push({ name: name, id: socket.id, status: status });
-    console.log(`List of all users: `, allUsers);
-    io.emit("userJoined", allUsers);
-  });
-
-  socket.broadcast.emit("userJoined");
-
-  // socket.on("message", (data) => {
-  //   const userIndex = allUsers.findIndex((user) => user.id === socket.id);
-  //   console.log(userIndex);
-  //   // if (!userIndex) return;
-  //   if (!allUsers[userIndex].name) return;
-  //   const currentName = allUsers[userIndex].name || "Anon_36w5";
-  //   data.name = currentName;
-  //   io.emit("message", data);
-  // });
-
-  //attempted solution
-  socket.on("message", (data) => {
-    const userIndex = allUsers.findIndex((user) => user.id === socket.id);
-    console.log(userIndex);
-
-    if (userIndex !== -1 && allUsers[userIndex].name) {
-      const currentName = allUsers[userIndex].name;
-      data.name = currentName;
-      io.emit("message", data);
-    } else {
-      // Handle the case where the user's name is undefined or userIndex is not found
-      data.name = "Anon_36w5"; // Set a default name or handle it as needed
-      io.emit("message", data);
-    }
-  });
-
-  socket.on("disconnect", () => {
-    // console.log(`User with socket ID ${socket.id} disconnected.`);
-
-    const userIndex = allUsers.findIndex((user) => user.id === socket.id);
-
-    if (userIndex !== -1) {
-      allUsers.splice(userIndex, 1);
-    }
-
-    io.emit("userCount", io.engine.clientsCount);
-  });
-});
+socketSetup(server);
 
 server.listen(PORT, () => {
   console.log(`App listening on port ${PORT}...`);

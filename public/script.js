@@ -22,8 +22,21 @@ socket.on("userCount", (userCount) => {
 socket.emit("userJoined", User.name);
 
 socket.on("userJoined", (allUsers) => {
-  sounds.user_enter.play();
+  // sounds.user_enter.play();
 
+  if (!allUsers) return;
+
+  const userStatus =
+    allUsers.find((user) => user.id === socket.id).status || "Unknown";
+  const userName = allUsers.find((user) => user.id === socket.id).name;
+  const lobbyNames = allUsers.map((user) => user.name).join(", ");
+
+  if (userStatus === "Anonymous") User.name = userName;
+
+  Lobby.userList.textContent = lobbyNames;
+});
+
+socket.on("lobbyList", (allUsers) => {
   if (!allUsers) return;
 
   const userStatus =

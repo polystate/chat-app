@@ -1,5 +1,6 @@
 import User from "../modules/User";
 import Messenger from "../modules/Messenger";
+import Lobby from "../modules/Lobby";
 
 function formatDate(date) {
   const months = [
@@ -53,7 +54,7 @@ function userLocEmotToggle() {
 
 function handleSendMessage(e) {
   e.preventDefault();
-  if (User.getCurrentLoc() === "lobby") {
+  if (User.getCurrentLoc() === "lobby" && User.input.value) {
     document.querySelector(".lobby-container").style.display = "none";
     document.querySelector(".messages-container").style.display = "block";
     document.getElementById("enter-name").style.display = "none";

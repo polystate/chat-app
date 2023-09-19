@@ -6,7 +6,7 @@ function Lobby() {
   const userList = document.querySelector(".user-list");
   const dropDown = document.querySelector(".dropdown");
   const lobbyContainer = document.querySelector(".lobby-container");
-  const saveChanges = document.getElementById("save-changes");
+  const changeName = document.getElementById("change-name");
   const deleteHistory = document.getElementById("delete-history");
   const modal = document.getElementById("confirmation-modal");
   const confirmYesButton = document.getElementById("confirm-yes");
@@ -37,7 +37,7 @@ function Lobby() {
     confirmNoButton,
     showModal,
     hideModal,
-    saveChanges,
+    changeName,
     deleteHistory,
     appendOption,
   };

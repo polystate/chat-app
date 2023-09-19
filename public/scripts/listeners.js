@@ -3,23 +3,25 @@ import User from "../modules/User";
 import Lobby from "../modules/Lobby";
 import { emoticons, handleSendMessage, optionsToggle } from "./utilities";
 
-// window.onload = function () {
-//   console.log("All resources have finished loading.");
-//   const countText = document.getElementById("count-text");
-//   const countContainer = document.querySelector(".count-container");
-//   if (!countText) {
-//     //this code is executing propery
-//     console.log("Error with countText");
-//     console.log(Messenger.countDisplay);
-//     //recreate countText
-//     const countDisplay = document.createElement("p");
-//     countDisplay.setAttribute("class", "user-input");
-//     countDisplay.setAttribute("id", "count-text");
-//     countDisplay.textContent = "1 user active";
-//     console.log(countDisplay);
-//     countContainer.appendChild(countDisplay);
-//   }
-// };
+window.onload = function () {
+  console.log("All resources have finished loading.");
+  const countText = document.getElementById("count-text");
+  const countContainer = document.querySelector(".count-container");
+  if (!countText) {
+    //this code is executing propery
+    // alert("error with countText");
+    console.log("Error with countText");
+    location.reload();
+    // console.log(Messenger.countDisplay);
+    //recreate countText
+    // const countDisplay = document.createElement("p");
+    // countDisplay.setAttribute("class", "user-input");
+    // countDisplay.setAttribute("id", "count-text");
+    // countDisplay.textContent = "1 user active";
+    // console.log(countDisplay);
+    // countContainer.appendChild(countDisplay);
+  }
+};
 
 //Body Listener
 document.addEventListener("DOMContentLoaded", () => {
@@ -59,6 +61,7 @@ User.enterName.addEventListener("input", (e) => {
   User.name = e.target.value;
   User.storeName(e.target.value);
   Lobby.aliasDisplay.textContent = e.target.value || "Anon";
+  console.log(Lobby.saveChanges);
 });
 
 //Toggle main menu
@@ -66,12 +69,14 @@ User.enterName.addEventListener("input", (e) => {
 User.hamburger.addEventListener("click", () => {
   setTimeout(() => {
     if (User.isMenuDisplayed) {
+      /*Navigated to Chat*/
       document.getElementById("enter-name").style.display = "block";
       document.getElementById("current-name").style.display = "none";
       Messenger.messagesContainer.style.display = "none";
       Lobby.lobbyContainer.style.display = "flex";
       Messenger.chatWindow.scrollTop = 0;
     } else {
+      /*Navigated to Lobby*/
       const currentName = document.getElementById("current-name");
       document.getElementById("enter-name").style.display = "none";
       currentName.style.display = "block";
@@ -119,11 +124,15 @@ Messenger.emoticonToggle.addEventListener("click", () => {
   }
 });
 
+//Change Name
+Lobby.changeName.addEventListener("click", () => {
+  User.name = User.enterName.value;
+  location.reload();
+});
+
 //Delete History
 
 Lobby.deleteHistory.addEventListener("click", () => {
-  // prompt("This will delete your history, are you sure?");
-  // localStorage.clear();
   Lobby.showModal();
 });
 
@@ -142,6 +151,16 @@ window.addEventListener("click", (e) => {
     Lobby.hideModal();
   }
 });
+
+//Count Text in case it doesn't display
+// setTimeout(() => {
+//   console.log(Lobby.countContainer);
+//   console.log(Lobby.countText);
+//   console.log(document.getElementById("count-text"));
+//   if(!document.getElementById("count-text")){
+
+//   }
+// }, 2000);
 
 //Lobby options settings toggle listener
 
