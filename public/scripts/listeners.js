@@ -6,33 +6,14 @@ import { emoticons, handleSendMessage, optionsToggle } from "./utilities";
 window.onload = function () {
   console.log("All resources have finished loading.");
   const countText = document.getElementById("count-text");
-  const countContainer = document.querySelector(".count-container");
   if (!countText) {
-    //this code is executing propery
-    // alert("error with countText");
     console.log("Error with countText");
     location.reload();
-    // console.log(Messenger.countDisplay);
-    //recreate countText
-    // const countDisplay = document.createElement("p");
-    // countDisplay.setAttribute("class", "user-input");
-    // countDisplay.setAttribute("id", "count-text");
-    // countDisplay.textContent = "1 user active";
-    // console.log(countDisplay);
-    // countContainer.appendChild(countDisplay);
   }
 };
 
 //Body Listener
 document.addEventListener("DOMContentLoaded", () => {
-  // const hasRefreshed = localStorage.getItem("hasRefreshed");
-  // if (!hasRefreshed) {
-  //   setTimeout(() => {
-  //     localStorage.setItem("hasRefreshed", "true");
-  //     location.reload();
-  //   }, 100);
-  // }
-  const countText = document.getElementById("count-text");
   const currentName = document.getElementById("current-name");
 
   socket.on("userJoined", (data) => {
@@ -126,6 +107,7 @@ Messenger.emoticonToggle.addEventListener("click", () => {
 
 //Change Name
 Lobby.changeName.addEventListener("click", () => {
+  if (!User.enterName.value) return;
   User.name = User.enterName.value;
   location.reload();
 });
@@ -151,16 +133,6 @@ window.addEventListener("click", (e) => {
     Lobby.hideModal();
   }
 });
-
-//Count Text in case it doesn't display
-// setTimeout(() => {
-//   console.log(Lobby.countContainer);
-//   console.log(Lobby.countText);
-//   console.log(document.getElementById("count-text"));
-//   if(!document.getElementById("count-text")){
-
-//   }
-// }, 2000);
 
 //Lobby options settings toggle listener
 

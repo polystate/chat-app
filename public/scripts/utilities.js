@@ -1,6 +1,5 @@
 import User from "../modules/User";
 import Messenger from "../modules/Messenger";
-import Lobby from "../modules/Lobby";
 
 function formatDate(date) {
   const months = [
