@@ -1,23 +1,23 @@
 import { formatDate, sounds } from "../scripts/utilities";
 
 function Messenger() {
-  //chat window
-  const chatWindow = document.querySelector(".chat-window");
-  const messagesContainer = document.querySelector(".messages-container");
-  //user panel
-  const btnSend = document.getElementById("btn-send");
-  const emoticonToggle = document.getElementById("emoticon-toggle");
-  const userPanel = document.querySelector(".user-panel");
-  //chat header
-  const countContainer = document.querySelector(".count-container");
-  const countDisplay = document.createElement("p");
+  const DOM = {
+    //chat window
+    chatWindow: document.querySelector(".chat-window"),
+    messagesContainer: document.querySelector(".messages-container"),
+    //user panel
+    btnSend: document.getElementById("btn-send"),
+    emoticonToggle: document.getElementById("emoticon-toggle"),
+    userPanel: document.querySelector(".user-panel"),
+    //chat header
+    countContainer: document.querySelector(".count-container"),
+    countDisplay: document.createElement("p"),
+  };
 
   const send = (userInput, userName) => {
     if (!userInput.value) return;
 
     sounds.message_sent.play();
-
-    console.log(userName);
 
     socket.emit("message", {
       name: userName,
@@ -41,20 +41,14 @@ function Messenger() {
     messageContent.textContent = (name || "Anon") + ": " + message;
     textDiv.appendChild(currentDate);
     textDiv.appendChild(messageContent);
-    messagesContainer.appendChild(textDiv);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
+    DOM.messagesContainer.appendChild(textDiv);
+    DOM.chatWindow.scrollTop = DOM.chatWindow.scrollHeight;
   };
 
   return {
     send,
     output,
-    chatWindow,
-    btnSend,
-    emoticonToggle,
-    userPanel,
-    messagesContainer,
-    countContainer,
-    countDisplay,
+    DOM,
   };
 }
 

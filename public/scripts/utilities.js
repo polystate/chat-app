@@ -44,23 +44,23 @@ function clearPlaceholder(input) {
 
 function userLocEmotToggle() {
   if (User.getCurrentLoc() === "chat") {
-    Messenger.emoticonToggle.classList.remove("active-star");
+    Messenger.DOM.emoticonToggle.classList.remove("active-star");
     const emoticonMenu = document.querySelector(".emoticon-menu");
     if (emoticonMenu) emoticonMenu.remove();
-    User.emoticonMenuOpen = false;
+    User.DOM.emoticonMenuOpen = false;
   }
 }
 
 function handleSendMessage(e) {
   e.preventDefault();
-  if (User.getCurrentLoc() === "lobby" && User.input.value) {
+  if (User.getCurrentLoc() === "lobby" && User.DOM.input.value) {
     document.querySelector(".lobby-container").style.display = "none";
     document.querySelector(".messages-container").style.display = "block";
     document.getElementById("enter-name").style.display = "none";
     document.getElementById("current-name").style.display = "block";
-    User.isMenuDisplayed = !User.isMenuDisplayed;
+    User.DOM.isMenuDisplayed = !User.DOM.isMenuDisplayed;
   }
-  Messenger.send(User.input, User.name);
+  Messenger.send(User.DOM.input, User.DOM.name);
   userLocEmotToggle();
 }
 

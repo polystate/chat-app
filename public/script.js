@@ -11,15 +11,15 @@ if (User.loadHistory()) {
 
 socket.on("userCount", (userCount) => {
   if (!userCount) return;
-  Messenger.countDisplay.textContent = `${userCount} ${
+  Messenger.DOM.countDisplay.textContent = `${userCount} ${
     userCount > 1 ? "users" : "user"
   } active`;
-  Messenger.countDisplay.setAttribute("class", "user-input");
-  Messenger.countDisplay.setAttribute("id", "count-text");
-  Messenger.countContainer.appendChild(Messenger.countDisplay);
+  Messenger.DOM.countDisplay.setAttribute("class", "user-input");
+  Messenger.DOM.countDisplay.setAttribute("id", "count-text");
+  Messenger.DOM.countContainer.appendChild(Messenger.DOM.countDisplay);
 });
 
-socket.emit("userJoined", User.name);
+socket.emit("userJoined", User.DOM.name);
 
 socket.on("userJoined", (allUsers) => {
   // sounds.user_enter.play();
@@ -33,7 +33,7 @@ socket.on("userJoined", (allUsers) => {
 
   if (userStatus === "Anonymous") User.name = userName;
 
-  Lobby.userList.textContent = lobbyNames;
+  Lobby.DOM.userList.textContent = lobbyNames;
 });
 
 socket.on("lobbyList", (allUsers) => {
@@ -46,7 +46,7 @@ socket.on("lobbyList", (allUsers) => {
 
   if (userStatus === "Anonymous") User.name = userName;
 
-  Lobby.userList.textContent = lobbyNames;
+  Lobby.DOM.userList.textContent = lobbyNames;
 });
 
 socket.on("message", (data) => {
@@ -55,5 +55,5 @@ socket.on("message", (data) => {
   User.updateHistory(name, message, date);
 });
 
-clearPlaceholder(User.enterName);
-clearPlaceholder(User.input);
+clearPlaceholder(User.DOM.enterName);
+clearPlaceholder(User.DOM.input);

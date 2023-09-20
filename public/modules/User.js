@@ -18,28 +18,30 @@ function User() {
     fog: { name: "fog", on: true, elem: document.getElementById("fog-toggle") },
   };
 
-  //DOM Retrieval
-  const messageHistory =
-    JSON.parse(localStorage.getItem("messageHistory")) || [];
+  const DOM = {
+    //DOM Retrieval
+    messageHistory: JSON.parse(localStorage.getItem("messageHistory")) || [],
 
-  //User inputs specific to Messenger
-  // const enterName = document.querySelectorAll(".user-input")[0];
-  const enterName = document.getElementById("enter-name");
-  const hamburger = document.querySelector(".hamburger-menu");
+    //User inputs specific to Messenger
+    // const enterName = document.querySelectorAll(".user-input")[0];
+    enterName: document.getElementById("enter-name"),
+    hamburger: document.querySelector(".hamburger-menu"),
 
-  //DOM Retrieval for User Name
-  let name = localStorage.getItem("userName");
+    //DOM Retrieval for User Name
+    name: localStorage.getItem("userName"),
 
-  //DOM Element for messenger
-  let input = document.getElementById("type-message");
+    //DOM Element for messenger
+    input: document.getElementById("type-message"),
 
-  //Boolean switch toggles for the different menus (might also be for Messenger)
-  let emoticonMenuOpen = false;
-  let hamburgerMenuOpen = false;
-  let isMenuDisplayed = true;
+    //Boolean switch toggles for the different menus (might also be for Messenger)
+    emoticonMenuOpen: false,
+    hamburgerMenuOpen: false,
+    isMenuDisplayed: true,
+  };
 
   //DOM Storage/Retrieval Methods with localStorage
   const storeName = (newName) => {
+    console.log(newName);
     localStorage.setItem("userName", newName);
   };
 
@@ -54,8 +56,9 @@ function User() {
   };
 
   const updateHistory = (name, message, date) => {
-    messageHistory.push({ name: name, message: message, date: date });
-    localStorage.setItem("messageHistory", JSON.stringify(messageHistory));
+    DOM.messageHistory.push({ name: name, message: message, date: date });
+
+    localStorage.setItem("messageHistory", JSON.stringify(DOM.messageHistory));
   };
 
   //THe main useful and relevant User method compared to the other, getting current location
@@ -67,17 +70,10 @@ function User() {
   };
 
   return {
-    name,
-    input,
-    emoticonMenuOpen,
-    hamburgerMenuOpen,
-    enterName,
+    DOM,
     storeName,
     loadHistory,
-    messageHistory,
     updateHistory,
-    hamburger,
-    isMenuDisplayed,
     getCurrentLoc,
     settings,
   };

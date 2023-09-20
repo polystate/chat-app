@@ -34,46 +34,47 @@ document.body.addEventListener("keypress", (e) => {
 
 //Messenger Send
 
-Messenger.btnSend.addEventListener("click", handleSendMessage);
+Messenger.DOM.btnSend.addEventListener("click", handleSendMessage);
 
 //Enter name input
 
-User.enterName.addEventListener("input", (e) => {
-  User.name = e.target.value;
+User.DOM.enterName.addEventListener("input", (e) => {
+  User.DOM.name = e.target.value;
   User.storeName(e.target.value);
-  Lobby.aliasDisplay.textContent = e.target.value || "Anon";
+  Lobby.DOM.aliasDisplay.textContent = e.target.value || "Anon";
   console.log(Lobby.saveChanges);
 });
 
 //Toggle main menu
 
-User.hamburger.addEventListener("click", () => {
+User.DOM.hamburger.addEventListener("click", () => {
   setTimeout(() => {
-    if (User.isMenuDisplayed) {
+    if (User.DOM.isMenuDisplayed) {
       /*Navigated to Chat*/
       document.getElementById("enter-name").style.display = "block";
       document.getElementById("current-name").style.display = "none";
-      Messenger.messagesContainer.style.display = "none";
-      Lobby.lobbyContainer.style.display = "flex";
-      Messenger.chatWindow.scrollTop = 0;
+      Messenger.DOM.messagesContainer.style.display = "none";
+      Lobby.DOM.lobbyContainer.style.display = "flex";
+      Messenger.DOM.chatWindow.scrollTop = 0;
     } else {
       /*Navigated to Lobby*/
       const currentName = document.getElementById("current-name");
       document.getElementById("enter-name").style.display = "none";
       currentName.style.display = "block";
-      Messenger.messagesContainer.style.display = "block";
-      Lobby.lobbyContainer.style.display = "none";
-      Messenger.chatWindow.scrollTop = Messenger.chatWindow.scrollHeight;
+      Messenger.DOM.messagesContainer.style.display = "block";
+      Lobby.DOM.lobbyContainer.style.display = "none";
+      Messenger.DOM.chatWindow.scrollTop =
+        Messenger.DOM.chatWindow.scrollHeight;
     }
-    User.isMenuDisplayed = !User.isMenuDisplayed;
+    User.DOM.isMenuDisplayed = !User.DOM.isMenuDisplayed;
   }, 250);
 });
 
 //Toggle emoticon menu
 
-Messenger.emoticonToggle.addEventListener("click", () => {
-  if (!User.emoticonMenuOpen) {
-    Messenger.emoticonToggle.classList.add("active-star");
+Messenger.DOM.emoticonToggle.addEventListener("click", () => {
+  if (!User.DOM.emoticonMenuOpen) {
+    Messenger.DOM.emoticonToggle.classList.add("active-star");
     const emoticonMenu = document.createElement("div");
     emoticonMenu.setAttribute("class", "emoticon-menu");
 
@@ -86,45 +87,45 @@ Messenger.emoticonToggle.addEventListener("click", () => {
 
     //Append emoticonMenu to the DOM through userPanel
 
-    Messenger.userPanel.appendChild(emoticonMenu);
+    Messenger.DOM.userPanel.appendChild(emoticonMenu);
 
-    emoticonMenu.style.marginBottom = `${Messenger.userPanel.clientHeight}px`;
+    emoticonMenu.style.marginBottom = `${Messenger.DOM.userPanel.clientHeight}px`;
 
     emoticonMenu.addEventListener("click", (e) => {
       const clientClicked = e.target.getAttribute("class");
       if (clientClicked === "emoticon") {
         const emojiCopy = e.target.cloneNode(true);
-        User.input.value += emojiCopy.textContent;
+        User.DOM.input.value += emojiCopy.textContent;
       }
     });
-    User.emoticonMenuOpen = true;
+    User.DOM.emoticonMenuOpen = true;
   } else {
-    Messenger.emoticonToggle.classList.remove("active-star");
+    Messenger.DOM.emoticonToggle.classList.remove("active-star");
     document.querySelector(".emoticon-menu").remove();
-    User.emoticonMenuOpen = false;
+    User.DOM.emoticonMenuOpen = false;
   }
 });
 
 //Change Name
-Lobby.changeName.addEventListener("click", () => {
-  if (!User.enterName.value) return;
-  User.name = User.enterName.value;
+Lobby.DOM.changeName.addEventListener("click", () => {
+  if (!User.DOM.enterName.value) return;
+  User.DOM.name = User.DOM.enterName.value;
   location.reload();
 });
 
 //Delete History
 
-Lobby.deleteHistory.addEventListener("click", () => {
+Lobby.DOM.deleteHistory.addEventListener("click", () => {
   Lobby.showModal();
 });
 
-Lobby.confirmYesButton.addEventListener("click", () => {
+Lobby.DOM.confirmYesButton.addEventListener("click", () => {
   localStorage.clear();
   Lobby.hideModal();
   location.reload();
 });
 
-Lobby.confirmNoButton.addEventListener("click", () => {
+Lobby.DOM.confirmNoButton.addEventListener("click", () => {
   Lobby.hideModal();
 });
 
